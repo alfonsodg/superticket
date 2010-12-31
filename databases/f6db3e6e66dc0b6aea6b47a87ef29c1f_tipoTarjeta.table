@@ -1,0 +1,14 @@
+(dp1
+S'id'
+p2
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p3
+sS'descripcionTipoTarjeta'
+p4
+S'TEXT'
+p5
+sS'nTipoTarjeta'
+p6
+S'CHAR(32) NOT NULL'
+p7
+s.

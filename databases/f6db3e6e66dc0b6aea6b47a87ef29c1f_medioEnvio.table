@@ -1,0 +1,18 @@
+(dp1
+S'descripcionMedioEnvio'
+p2
+S'TEXT'
+p3
+sS'id'
+p4
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p5
+sS'nMedioEnvio'
+p6
+S'CHAR(32) NOT NULL'
+p7
+sS'precioMedioEnvio'
+p8
+S'DOUBLE NOT NULL'
+p9
+s.

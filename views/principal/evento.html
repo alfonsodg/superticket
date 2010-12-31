@@ -1,0 +1,26 @@
+<!--Vista basada en la vista layout.html
+    Esta vista configura los vinculos 
+    al momento de hacer mantenimiento a la
+    base de datos
+-->
+
+{{extend 'layout_admin.html'}}
+<script></script>
+
+{{try:}}{{=uplink}}{{except:}}{{pass}}
+<h1>
+{{include 'principal/menu.html'}}
+</h1>
+
+
+<!--Si se accede a la función index, entonces accede a la lista de tablas de la base de datos
+-->
+{{if request.function=='evento':}}
+  {{if len(dbs)==0:}}No hay bases de datos en esta aplicación{{pass}}
+  {{for dbname,items in dbs.items():}}
+    <h3>Tabla(s):</h3>
+    {{for dt in items:}}
+      <h2>{{=A(str(dt)[8:][:-2],_href=URL(r=request,f='select/%s/%s'%dt))}}</h2>
+    {{pass}}
+  {{pass}}<br/><br/>
+{{pass}}

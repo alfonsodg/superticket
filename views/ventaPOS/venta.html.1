@@ -1,0 +1,159 @@
+{{extend 'layout.html'}}
+<p>Cliente: {{=cliente[0].nUsuario}}</p>
+<p>Vendedor: {{=vendedor[0].nUsuario}}</p>
+<p> {{=A("Regresar",_href=URL(r=request,f='index'))}}</p>
+<p>Evento: {{=datosUnicos.evento.nEvento}}</p>
+<p>Zona:{{=datosUnicos.zona.nZona}}</p>
+<p>Precio de la zona: {{=datosUnicos.zona.costoZona}}</p>
+Lista de asiento(s) seleccionado(s): 
+<table>
+{{for num in numAsiento:}}
+<tr>
+<td>{{=num}}</td>
+</tr>
+{{pass}}
+</table>
+<p></p>
+<form id="myform">
+<div>
+    <label id="lmedioEnvio">Medio de Envio</label>        
+    <select id="medioEnvioId" name="medioEnvio" />
+        {{for x in medioEnvio:}}
+            <option  value={{=x.id}}>{{=x.nMedioEnvio}}</option>
+        {{pass}}
+    </select>
+</div>
+<div id="puntoVenta">    
+    <table width="400" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="200"><label>Punto de venta</label></td>   
+    <td width="200"><select id="puntoVentaId" name="puntoVenta" />
+        {{for x in puntoVenta:}}
+            <option value={{=x.id}}>{{=x.nPuntoVenta}}</option>
+        {{pass}}
+    </select>
+    </td>
+    </tr>
+    <table>
+</div>
+ 
+<div id="ubicacion">
+    <table width="400" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="200"><label>Pais distrito</label></td>        
+    <td width="200"><select name="paisDistrito" id="paisDistrito" 
+     onchange="ajax('cantonDistrito',['paisDistrito'],'cantonTarget')">
+        {{for x in paisProvincia:}}
+            <option value={{=x.provincia.id}}>{{=x.pais.nPais}} - {{=x.provincia.nProvincia}}</option>
+        {{pass}}
+    </select>
+    </td>
+    </tr>
+    <table>
+    <div id="cantonTarget">
+    </div>
+    <table width="400" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="200"><label id="ldireccion">Direccion</label>  </td>        
+    <td width="200"><input id="direccionId" name="direccion"  />    
+    </td>
+    </tr>
+    <table>
+</div>    
+
+<div>
+    <label>medio pago</label>        
+    <select id ="medioPagoId" name="medioPago"/>
+        {{for x in medioPago:}}
+            <option value={{=x.id}}>{{=x.nMedioPago}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label id="ltipoTarjeta">tipo tarjeta</label>        
+    <select id="tipoTarjetaId" name="tipoTarjeta" />
+        {{for x in tipoTarjeta:}}
+            <option value={{=x.id}}>{{=x.nTipoTarjeta}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label id="ltarjeta">Numero tarjeta</label>        
+    <input id="tarjetaId" name="numTarjeta" />
+</div>
+<div>
+    <label id="lobservaciones">Observaciones</label>        
+    <input id="observacionesId" name="observaciones" />
+</div>
+<div>
+    <input type="submit" name="boton" />
+</div>    
+</form>
+
+<p><div>Subtotal: {{=datosUnicos.zona.costoZona*len(numAsiento)}}</div></p>
+<p><div>Comisión: {{=datos.comision}}</div></p>
+<p><div id="targetEnvio"></div></p>
+<p><div id="targetDescuento"></div></p>
+<p><div id="targetPrecio"></div></p>
+<p><div id="targetCampana"></div></p>
+<script>
+$(document).ready(function(){
+    $('#medioEnvioId').attr('value','2');
+    $('#lmedioEnvio').fadeOut(); 
+    $('#medioEnvioId').fadeOut(); 
+
+    ajax('cantonDistrito',['paisDistrito'],'cantonTarget');
+    ajax('campana',['medioPagoId','tipoTarjetaId'],'targetCampana');
+    ajax('descuento',['medioPagoId','tipoTarjetaId'],'targetDescuento');        
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');
+    ajax('envio',['medioEnvioId','puntoVentaId'],'targetEnvio');
+    $('#puntoVenta').fadeIn();
+    $('#ubicacion').fadeOut();  
+    $('#formaEnvio').fadeOut('slow');
+    $('#cantonTarget').fadeOut('slow');
+    $('#ltarjeta').fadeOut('slow');
+    $('#tarjetaId').fadeOut('slow');    
+    $('#tarjetaId').attr('value','-');
+    $('#ltipoTarjeta').fadeOut('slow');
+    $('#tipoTarjetaId').fadeOut('slow'); 
+
+
+});
+$('#puntoVentaId').change(function(){
+    ajax('envio',['medioEnvioId','puntoVentaId'],'targetEnvio');
+});
+$('#medioEnvioId').change(function(){
+    ajax('envio',['medioEnvioId','puntoVentaId'],'targetEnvio');   
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');
+    if($('#medioEnvioId').attr('value')=="1"){
+        $('#puntoVenta').fadeOut();
+        $('#ubicacion').fadeIn();        
+    }else{
+        $('#puntoVenta').fadeIn(); 
+        $('#ubicacion').fadeOut();          
+    }
+});
+$('#medioPagoId').change(function(){ 
+    ajax('campana',['medioPagoId','tipoTarjetaId'],'targetCampana');
+    ajax('descuento',['medioPagoId','tipoTarjetaId'],'targetDescuento');        
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');    
+    if($('#medioPagoId').attr('value')=="1"){
+        $('#ltarjeta').fadeOut('slow');
+        $('#tarjetaId').fadeOut('slow');
+        $('#tarjetaId').attr('value','-');
+        $('#ltipoTarjeta').fadeOut('slow');
+        $('#tipoTarjetaId').fadeOut('slow');
+    }else{
+        $('#ltarjeta').fadeIn('slow');
+        $('#tarjetaId').attr('value','');
+        $('#tarjetaId').fadeIn('slow');
+        $('#ltipoTarjeta').fadeIn('slow');
+        $('#tipoTarjetaId').fadeIn('slow');
+    }
+});
+$('#tipoTarjetaId').change(function(){ 
+    ajax('campana',['medioPagoId','tipoTarjetaId'],'targetCampana');
+    ajax('descuento',['medioPagoId','tipoTarjetaId'],'targetDescuento');     
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');  
+});
+</script>

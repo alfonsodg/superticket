@@ -1,0 +1,14 @@
+(dp1
+S'nCanton'
+p2
+S'CHAR(32) NOT NULL'
+p3
+sS'idProvincia'
+p4
+S'REFERENCES provincia(id) ON DELETE CASCADE'
+p5
+sS'id'
+p6
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p7
+s.

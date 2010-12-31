@@ -1,0 +1,20 @@
+{{extend 'layout.html'}}
+<h1>Buscador de usuario para venta POS</h1>
+{{=form}}
+<table>
+{{for fila in selected:}}
+    {{if fila==["ID","Usuario","Tipo de Doc.","Num. Doc.","Dirección","Distrito"]:}}
+        <tr>
+        {{for elemento in fila:}}
+                <td>{{=elemento}}</td>
+        {{pass}}
+        </tr> 
+    {{else:}}
+        <tr>
+        {{for elemento in fila:}}
+                <td>{{=A(elemento,_href=URL(r=request,c='ventaPOS',f='index?cliente=%s'%fila[0]))}}</td>
+        {{pass}}
+        </tr>
+    {{pass}}
+{{pass}}
+</table>

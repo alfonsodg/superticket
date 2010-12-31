@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{{import applications.SVT.modules.fecha as fecha}}
+{{fechas=fecha.fechas()}}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{{=response.keywords}}" />
+<meta name="description" content="{{=response.description}}" />
+<link rel="shortcut icon" href="/{{=request.application}}/static/favicon.ico">
+<link href="{{=URL(r=request,c='static',f='estilos.css')}}" rel="stylesheet" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript" src="/{{=request.application}}/static/scriptaculous/prototype.js"></script>
+<script type="text/javascript" src="/{{=request.application}}/static/scriptaculous/scriptaculous.js"></script>
+<title>Maccticket S.A.</title>
+<style type="text/css">
+
+
+     body  {
+       font-family: Arial, Helvetica, sans-serif;
+       background: #e4e4e4 url("/{{=request.application}}/static/barra_bk.gif");
+       background-repeat: repeat-x; 
+       font-size:10px;             
+       }
+    #contenedor {
+        background-color: Black;
+        border: 4px solid Black; /*ancho del borde/tipo de linea/ color del borde*/
+        width: 790px;
+        margin: 0 auto; /*esta combinacion centra la pagina*/
+    }
+    #cabecera {
+        background-color: Black;
+        width: 100%;
+        float: none;
+    }
+    #logo {
+        width: 500px;
+        height: 56px;
+        background: Black;
+    }
+    #sesion {
+        width: 620px;
+        height: 56px;
+        float: right;
+        background: Black;
+        font-size: 9px;
+        text-align: right;
+        color:#FFFFFF;
+    }
+    #sesion A:link {text-decoration: none; color: white;}
+    #sesion A:visited {text-decoration: none; color: white;}
+    #sesion A:active {text-decoration: none; color: white;}
+    #sesion A:hover {text-decoration: none; color: #9B1E18;}
+    
+    #sesion ul li {
+      display: inline;
+      padding: 2px 7px; /*Separar el texto*/
+      margin:5px; /* Separar los botones */
+    } 
+    #promo {
+        width: 100%;
+        height: 210px;
+        background: Black;
+    }
+    #promocontenido {
+        width: 640px;
+        height: 210px;
+        background: Black;
+        float:left;
+    }
+    #promomenu {
+        width: 150px;
+        height: 210px;
+        background: Black;
+        float:right;
+        position:relative;
+        left:-5px;
+               
+    }
+
+    #categorias {
+        font-size: 12px;
+        color:#FFFFFF;
+        width: 100%;
+    }
+    
+    #flash {
+        background-color: white;
+        text-align: center;
+        width: 790px;
+        float: none;
+    }
+    #contenido {
+    background-color: #333333;
+    float: none;
+    }
+
+    #contizq {
+        background-color: #333333;
+        float: left;
+        width: 170px;
+        font-size:12px;
+        padding-bottom: 10px;
+        font-weight:bold;
+        
+                
+    }
+  #contizq ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+
+  }
+  
+  #contizq ul li {
+    background: white;
+    margin: 0.5em 0;
+    padding: 0.3em;
+    border-right: 1em solid black;
+    }
+  #contizq ul a {text-decoration: none }
+  #contizq a:link {color: black }
+  #contizq a:visited {color: black }
+  #contizq A:hover {color: #9B1E18; }   
+    
+    #contcentral {
+    background-color: #999999;
+    float: none;
+    margin-left: 170px;
+    margin-right: 0px;
+    font-size:10px;
+    border-left: 5px;
+    border-right-color: #000000;
+    border-left-color: #000000;
+    border-right: 5px; 
+    border-right-style:solid;
+    border-left-style:solid;
+    padding: 5px 10px 10px 10px;
+    overflow:auto; 
+    }
+    #contder {
+        /*background-color: White;*/
+        background-color: #333333;
+        float: right;
+        width: 150px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+
+    }
+    
+    .clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain its child floats */
+        clear:both;
+        height:0;
+        font-size: 1px;
+        line-height: 0px;
+    }
+    
+    #pie {
+    background-color: #000000;
+    float: none;
+    text-align: center;
+    }
+    #pielink {
+        float: none;
+        font-size:9px;
+        
+        /*background-color: Black;*/
+    }
+    #pielink A:link {text-decoration: none; color: white;}
+    #pielink A:visited {text-decoration: none; color: white;}
+    #pielink A:active {text-decoration: none; color: white;}
+    #pielink A:hover {text-decoration: none; color: #9B1E18;}
+    #pielink ul li {
+      display: inline;
+      padding: 2px 7px; /*Separar el texto*/
+      margin:2px; /* Separar los botones */
+    } 
+    #piecopy {
+        float: none;
+        font-size:10px;
+        color:#FFFFFF;
+        /*background-color: Black;*/
+    }
+</style>
+{{include 'web2py_ajax.html'}}
+
+<script type="text/javascript" src="/layouts/static/jquery.js"></script>
+
+<link rel="stylesheet" href="/layouts/static/ui.datepicker.css" type="text/css" media="screen" title="core css file" charset="utf-8" />
+<script src="/layouts/static/ui.datepicker.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript"><!--
+/* Written by Massimo Di Pierro. Here for backward compatibility. */
+function popup(url) {
+  newwindow=window.open(url,'name','height=400,width=600');
+  if (window.focus) newwindow.focus();
+  return false;
+}
+function collapse(id) { $('#'+id).slideToggle(); }
+function fade(id,value) { if(value>0) $('#'+id).hide().fadeIn('slow'); else $('#'+id).show().fadeOut('slow'); }
+function ajax(u,s,t) {
+  var query="";
+  for(i=0; i<s.length; i++) { if(i>0) query=query+"&";
+     query=query+encodeURIComponent(s[i])+"="+encodeURIComponent(document.getElementById(s[i]).value);
+  }
+  $.ajax({type: "POST", url: u, data: query, success: function(msg) { document.getElementById(t).innerHTML=msg; } });  
+} 
+String.prototype.reverse = function () {return this.split('').reverse().join('');};
+$(document).ready(function() {
+$('div.error').hide().slideDown('slow');
+$('#flash').hide().slideDown('slow').attr('onclick','$(this).fadeOut();');
+$('input.integer').attr('onkeyup',"this.value=this.value.reverse().replace(/[^0-9\-]|\-(?=.)/g,'').reverse();");
+$('input.double').attr('onkeyup',"this.value=this.value.reverse().replace(/[^0-9\-\.]|[\-](?=.)|[\.](?=[0-9]*[\.])/g,'').reverse();");
+try {$("input.date").datepicker({dateFormat: 'yy-mm-dd'});} catch(e) {};
+});
+//--></script>
+
+</head>
+
+<body>
+<div id="contenedor" >
+    <div id="cabecera">
+        <div id="logo"><img src="/{{=request.application}}/static/logo.png" width="170" alt="" /></div>
+         
+
+        {{if response.flash:}}
+        <div id="flash">{{=response.flash}}</div>
+        {{pass}}
+   
+   
+    <div id="contenido">
+        <div id="contizq" align="center">
+            {{if response.menu:}}
+            {{=MENU(response.menu)}}
+            {{pass}}
+            <br />
+        </div>
+        <div id="contcentral">{{include}}<div align="center"> <br class="clearfloat" /> </div></div>
+        <div align="center">
+        <!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats -->
+        <br class="clearfloat" />
+        </div>
+    </div>
+    <div id="pie">
+        <div id="pielink">
+            <ul>
+            <li><a href="http://maccticket.com">Maccticket S.A.</a></li>
+            <li><a href="http://maccticket.com">Preguntas Frecuentes</a></li>
+            <li><a href="http://maccticket.com">Politicas de Privacidad</a></li>
+            <li>{{=A("Terminos y Condiciones",_href=URL(r=request,c='informacion',f='terminos'))}}</li>
+            </ul>
+        </div>
+        <div id="piecopy">
+            Todos los derechos reservados - Maccticket S.A.<br />
+            Florida de Tibás, San José, Costa Rica<br />
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

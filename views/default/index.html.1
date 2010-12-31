@@ -1,0 +1,14 @@
+{{extend 'layout.html'}}
+
+<h3>PROXIMAMENTE</h3>
+<table width="350" align="center" border="0" cellpadding="0" cellspacing="0">
+{{for record in records: }}
+  <tr align="center" valign="middle">
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>{{=A(record.tipoEvento.nTipoEvento,_href=URL(r=request,f='evento?id=%s'%record.tipoEvento.nTipoEvento))}}
+      {{=record.tipoEvento.nTipoEvento}}<br>
+    </p></td>
+  </tr>
+{{pass}}
+</table>

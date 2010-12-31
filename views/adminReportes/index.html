@@ -1,0 +1,40 @@
+{{extend 'layout.html'}}
+<h1>formulario para la elaboración de reportes</h1>
+{{=form}}
+<script>
+jQuery(document).ready(function(){ 
+    jQuery('#pto').fadeOut('slow');
+    jQuery('#fInicio').fadeOut('slow');        
+    jQuery('#fFin').fadeOut('slow');            
+}); 
+jQuery('#tipo').change(function(){ 
+
+    if(jQuery('#tipo').attr('value')=="0" || jQuery('#tipo').attr('value')=="1" ||
+    jQuery('#tipo').attr('value')=="2" || jQuery('#tipo').attr('value')=="3" ||
+    jQuery('#tipo').attr('value')=="4"){
+        jQuery('#pto').fadeOut('slow');
+        jQuery('#fInicio').fadeOut('slow');        
+        jQuery('#fFin').fadeOut('slow');   
+        jQuery('#evento').fadeIn('slow');                                         
+    }else{
+        if(jQuery('#tipo').attr('value')=="5" || jQuery('#tipo').attr('value')=="6"){
+            jQuery('#pto').fadeOut('slow');
+            jQuery('#fInicio').fadeOut('slow');        
+            jQuery('#fFin').fadeOut('slow');                             
+            jQuery('#evento').fadeOut('slow');                                 
+        }else{
+            if(jQuery('#tipo').attr('value')=="7"){
+                jQuery('#pto').fadeOut('slow');
+                jQuery('#fInicio').fadeIn('slow');        
+                jQuery('#fFin').fadeIn('slow');                             
+                jQuery('#evento').fadeOut('slow');         
+            }else{
+                jQuery('#pto').fadeIn('slow');
+                jQuery('#fInicio').fadeIn('slow');        
+                jQuery('#fFin').fadeIn('slow');                             
+                jQuery('#evento').fadeOut('slow'); 
+            }
+        }                                    
+    }
+});
+</script>

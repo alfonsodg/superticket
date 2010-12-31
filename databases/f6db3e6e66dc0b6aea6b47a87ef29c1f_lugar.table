@@ -1,0 +1,30 @@
+(dp1
+S'direccionLugar'
+p2
+S'CHAR(100) NOT NULL'
+p3
+sS'referenciaLugar'
+p4
+S'TEXT'
+p5
+sS'fotoLugar'
+p6
+S'CHAR(128)'
+p7
+sS'idDistrito'
+p8
+S'REFERENCES distrito(id) ON DELETE CASCADE'
+p9
+sS'observacionesLugar'
+p10
+S'TEXT'
+p11
+sS'nLugar'
+p12
+S'CHAR(32) NOT NULL'
+p13
+sS'id'
+p14
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p15
+s.

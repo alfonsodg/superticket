@@ -1,0 +1,86 @@
+<!--Vista basada en la vista layout.html
+    Esta vista configura los vinculos
+    al momento de hacer mantenimiento a la
+    base de datos
+-->
+
+{{extend 'layout_admin.html'}}
+<script></script>
+
+{{try:}}{{=uplink}}{{except:}}{{pass}}
+<h1>
+
+<!--Redirecciona para el mantenimiento de la tabla seleccinada
+-->
+
+  {{if len(request.args)>=1:}}
+    <h3>
+    {{=T("Menú principal: ")}} [<a href="{{=URL(r=request,c='principal',f='index')}}"> Mantenimiento </a>] [<a href="{{=URL(r=request,c='simulacion',f='configuracion')}}"> Configuración </a>] [<a href="{{=URL(r=request,c='autenticacion',f='salir')}}"> Salir </a>] 
+    </h3><h1></h1>
+    {{try:}}{{query}}{{except:}}{{query=None}}{{pass}}
+    <h3>
+    {{if not query:}} Tabla: {{=A(request.args[1],_href=URL(r=request,f='select/%s/%s'% tuple(request.args[:2])))}} Función: {{=request.function}} {{else:}} {{pass}}
+    </h3><h1></h1>
+    {{if len(request.args)==3:}}
+    {{pass}}
+  {{else:}}
+   
+  {{pass}}
+
+</h1>
+
+
+<!--Si se accede a la función index, entonces accede a la lista de tablas de la base de datos
+-->
+{{if request.function=='index':}}
+  {{if len(dbs)==0:}}No hay bases de datos en esta aplicación{{pass}}
+  {{for dbname,items in dbs.items():}}
+    {{for dt in items:}}
+      <h2>{{=A(dt,_href=URL(r=request,f='select/%s/%s'%dt))}}</h2>
+    {{pass}}
+  {{pass}}<br/><br/>
+{{pass}}
+<!--Si accede a la función seleccionar un registro para su mantenimiento
+-->
+{{if request.function=='select' and len(request.args)>1:}}
+    <h2>Insertar un nuevo registro</h2><br/>
+  [ {{=A('Insertar nuevo registro '+request.args[1],_href=URL(r=request,f='insert/%s/%s'%tuple(request.args[:2])))}} ]<br/><br/>
+    <h2>Registros de la tabla</h2><br/>
+{{elif request.function=='select' and len(request.args)==1:}}
+    <h2>Rows selected</h2><br/>
+{{pass}}
+{{if request.function=='select' and len(request.args)>=1:}}
+    <form action="{{=URL(r=request,args=request.args[:1])}}" method="post">
+    <table>
+    <tr><td width="400px">Para editar o eliminar el registro seleccionar el registro(id)</td><td>
+    {{if len(request.args)==1:}}
+</td></tr>
+    {{pass}}
+    </table>
+    </form>
+    <br/>
+    {{if start>0:}}[ {{=A('100 registro previos',_href=URL(r=request,f='select/%s?start=%s'%('/'.join(request.args),start-100)))}} ]{{pass}}
+    {{if nrecords==100:}}[ {{=A('100 registros siguientes',_href=URL(r=request,f='select/%s?start=%s'%('/'.join(request.args),start+100)))}} ]{{pass}}
+<div style="overflow: auto;" width="80%">
+    {{=records}}
+</div>
+{{pass}}
+<!--Si se accede a la función insert(Insertar)
+-->
+{{if request.function=='insert' and len(request.args)>1:}} 
+  <h2>Nuevo registro</h2><br/>
+  {{=form}}
+{{pass}}
+<!--Si se accede a la función update(Actualizar)
+-->
+{{if request.function=='update' and len(request.args)>2:}}
+  <h2>Editar registro actual </h2><br/><br/> {{=form}}
+{{pass}}
+{{if request.function=='state':}}
+  <h2>Current request</h2>
+  {{=BEAUTIFY(request)}}
+  <br/><h2>Current response</h2>
+  {{=BEAUTIFY(response)}}
+  <br/><h2>Current session</h2>
+  {{=BEAUTIFY(session)}}
+{{pass}}

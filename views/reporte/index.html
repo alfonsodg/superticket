@@ -1,0 +1,137 @@
+{{extend 'layout.html'}}
+<h1>Formulario para la elaboración de reportes</h1>
+{{=form}}
+<script>
+jQuery(document).ready(function(){
+    if(jQuery('#tipo').attr('value')=="0"){
+        jQuery('#pto').fadeIn('slow');
+        jQuery('#lbP').fadeIn('slow');
+        jQuery('#mPago').fadeIn('slow');
+        jQuery('#lbM').fadeIn('slow');        
+        jQuery('#fInicio').fadeOut('slow');
+        jQuery('#fFin').fadeOut('slow');
+        jQuery('#lbFI').fadeOut('slow');
+        jQuery('#lbFF').fadeOut('slow');
+        jQuery('#lbE').fadeIn('slow');
+        jQuery('#evento').fadeIn('slow');
+    }else{    
+        if (jQuery('#tipo').attr('value')=="1" ||
+        jQuery('#tipo').attr('value')=="2" || jQuery('#tipo').attr('value')=="3" ||
+        jQuery('#tipo').attr('value')=="4"){
+            jQuery('#pto').fadeOut('slow');
+            jQuery('#lbP').fadeOut('slow');
+            jQuery('#mPago').fadeOut('slow');
+            jQuery('#lbM').fadeOut('slow');              
+            jQuery('#fInicio').fadeOut('slow');
+            jQuery('#fFin').fadeOut('slow');
+            jQuery('#lbFI').fadeOut('slow');
+            jQuery('#lbFF').fadeOut('slow');
+            jQuery('#lbE').fadeIn('slow');
+            jQuery('#evento').fadeIn('slow');
+        }else{
+            if(jQuery('#tipo').attr('value')=="5" || jQuery('#tipo').attr('value')=="6"){
+                jQuery('#pto').fadeOut('slow');
+                jQuery('#lbP').fadeOut('slow');
+                jQuery('#mPago').fadeOut('slow');
+                jQuery('#lbM').fadeOut('slow'); 
+                jQuery('#fInicio').fadeOut('slow');
+                jQuery('#fFin').fadeOut('slow');
+                jQuery('#lbFI').fadeOut('slow');
+                jQuery('#lbFF').fadeOut('slow');
+                jQuery('#evento').fadeOut('slow');
+                jQuery('#lbE').fadeOut('slow'); 
+            }else{
+                if(jQuery('#tipo').attr('value')=="7"){
+                    jQuery('#pto').fadeOut('slow');
+                    jQuery('#lbP').fadeOut('slow');
+                    jQuery('#mPago').fadeOut('slow');
+                    jQuery('#lbM').fadeOut('slow');
+                    jQuery('#fInicio').fadeIn('slow');
+                    jQuery('#fFin').fadeIn('slow');
+                    jQuery('#lbFI').fadeIn('slow');
+                    jQuery('#lbFF').fadeIn('slow');
+                    jQuery('#evento').fadeOut('slow');
+                    jQuery('#lbE').fadeOut('slow');
+                }else{
+                    jQuery('#pto').fadeIn('slow');
+                    jQuery('#lbP').fadeIn('slow');
+                    jQuery('#mPago').fadeOut('slow');
+                    jQuery('#lbM').fadeOut('slow'); 
+                    jQuery('#fInicio').fadeIn('slow');
+                    jQuery('#fFin').fadeIn('slow');
+                    jQuery('#lbFI').fadeIn('slow');
+                    jQuery('#lbFF').fadeIn('slow');
+                    jQuery('#evento').fadeOut('slow');
+                    jQuery('#lbE').fadeOut('slow');
+                }
+            }                                    
+        }
+    }
+});
+jQuery('#tipo').change(function(){ 
+    if(jQuery('#tipo').attr('value')=="0"){
+        jQuery('#pto').fadeIn('slow');
+        jQuery('#lbP').fadeIn('slow');
+        jQuery('#mPago').fadeIn('slow');
+        jQuery('#lbM').fadeIn('slow');        
+        jQuery('#fInicio').fadeOut('slow');
+        jQuery('#fFin').fadeOut('slow');
+        jQuery('#lbFI').fadeOut('slow');
+        jQuery('#lbFF').fadeOut('slow');
+        jQuery('#lbE').fadeIn('slow');
+        jQuery('#evento').fadeIn('slow');
+    }else{    
+        if (jQuery('#tipo').attr('value')=="1" ||
+        jQuery('#tipo').attr('value')=="2" || jQuery('#tipo').attr('value')=="3" ||
+        jQuery('#tipo').attr('value')=="4"){
+            jQuery('#pto').fadeOut('slow');
+            jQuery('#lbP').fadeOut('slow');
+            jQuery('#mPago').fadeOut('slow');
+            jQuery('#lbM').fadeOut('slow');              
+            jQuery('#fInicio').fadeOut('slow');
+            jQuery('#fFin').fadeOut('slow');
+            jQuery('#lbFI').fadeOut('slow');
+            jQuery('#lbFF').fadeOut('slow');
+            jQuery('#lbE').fadeIn('slow');
+            jQuery('#evento').fadeIn('slow');
+        }else{
+            if(jQuery('#tipo').attr('value')=="5" || jQuery('#tipo').attr('value')=="6"){
+                jQuery('#pto').fadeOut('slow');
+                jQuery('#lbP').fadeOut('slow');
+                jQuery('#mPago').fadeOut('slow');
+                jQuery('#lbM').fadeOut('slow'); 
+                jQuery('#fInicio').fadeOut('slow');
+                jQuery('#fFin').fadeOut('slow');
+                jQuery('#lbFI').fadeOut('slow');
+                jQuery('#lbFF').fadeOut('slow');
+                jQuery('#evento').fadeOut('slow');
+                jQuery('#lbE').fadeOut('slow'); 
+            }else{
+                if(jQuery('#tipo').attr('value')=="7"){
+                    jQuery('#pto').fadeOut('slow');
+                    jQuery('#lbP').fadeOut('slow');
+                    jQuery('#mPago').fadeOut('slow');
+                    jQuery('#lbM').fadeOut('slow');
+                    jQuery('#fInicio').fadeIn('slow');
+                    jQuery('#fFin').fadeIn('slow');
+                    jQuery('#lbFI').fadeIn('slow');
+                    jQuery('#lbFF').fadeIn('slow');
+                    jQuery('#evento').fadeOut('slow');
+                    jQuery('#lbE').fadeOut('slow');
+                }else{
+                    jQuery('#pto').fadeIn('slow');
+                    jQuery('#lbP').fadeIn('slow');
+                    jQuery('#mPago').fadeOut('slow');
+                    jQuery('#lbM').fadeOut('slow'); 
+                    jQuery('#fInicio').fadeIn('slow');
+                    jQuery('#fFin').fadeIn('slow');
+                    jQuery('#lbFI').fadeIn('slow');
+                    jQuery('#lbFF').fadeIn('slow');
+                    jQuery('#evento').fadeOut('slow');
+                    jQuery('#lbE').fadeOut('slow');
+                }
+            }                                    
+        }
+    }
+});
+</script>

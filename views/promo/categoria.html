@@ -1,0 +1,9 @@
+{{extend 'layoutless.html'}}
+<div class="menu" align="right">
+<ul>
+<li>{{=A("Inicio",_href=URL(r=request,c="default",f="index"),_target = "_top")}}</li>
+{{for registro in registros: }}
+    <li>{{=A(registro.nSupraTipoEvento,_href=URL(r=request,c="default",f='supra?id=%s'%registro.id),_target = "_top")}}</li>
+{{pass}}
+</ul> 
+</div>

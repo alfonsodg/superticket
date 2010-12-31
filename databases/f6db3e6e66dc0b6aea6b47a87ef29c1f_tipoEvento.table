@@ -1,0 +1,22 @@
+(dp1
+S'nTipoEvento'
+p2
+S'CHAR(32) NOT NULL'
+p3
+sS'idSupraTipoEvento'
+p4
+S'REFERENCES supraTipoEvento(id) ON DELETE CASCADE'
+p5
+sS'descripcionTipoEvento'
+p6
+S'TEXT'
+p7
+sS'id'
+p8
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p9
+sS'imagenTipoEvento'
+p10
+S'CHAR(128)'
+p11
+s.

@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<h1>This is the ventaPOS/buscar.html template</h1>
+{{=form}}
+<table>
+{{for y in selected:}}
+    <tr>
+    <tr>
+    </tr>        
+    {{for s in y:}}
+        <tr>
+        <td>{{=A(s,_href=URL(r=request,f='ventaPOS?cliente=%s%selected.id'))}}</td>
+        <td>{{=A(s,_href=URL(r=request,f='ventaPOS?cliente=%s%selected.id'))}}</td>        
+        </tr>
+    {{pass}}
+    </tr>    
+{{pass}}
+</table>

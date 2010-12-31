@@ -1,0 +1,13 @@
+{{extend 'layout_admin.html'}}
+{{include 'asiento/menu.html'}}
+<h1>Evento: {{=A(evento[0],_href=URL(r=request,f='evento'))}}</h1>
+<h1>Lista zonas y su respectivo precio</h1>
+<table>
+{{for zona in zonas:}}
+<tr>
+<td>{{=A(zona.nZona,_href=URL(r=request,f='asiento?id=%s'%zona.id))}}</td>
+<td></td>
+<td>{{=zona.costoZona}}</td>
+</tr>
+{{pass}}
+</table>

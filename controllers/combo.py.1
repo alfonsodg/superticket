@@ -1,0 +1,30 @@
+def index(): 
+    print '------'
+    pais = db().select(db.pais.ALL) 
+    if request.vars.values():
+        print '------'
+    return dict(pais=pais) 
+
+def provincia(): 
+    pais = request.vars.values()[0]
+    provincia = db(db.provincia.idPais == pais).select()
+    return SELECT(_type="select",_id="provincia",_name="provincia",
+    _onChange="ajax('"+URL 
+    (r=request,f='canton')+"',['provincia'], 'target1'); alert('his');",
+    *[OPTION(provincia[i].nProvincia, 
+    _value=str(provincia[i].id)) for i in range(len(provincia))])
+
+def canton(): 
+    provincia = request.vars.values()[0] 
+    canton = db(db.canton.idProvincia == provincia).select() 
+    return SELECT(_id="canton",_name="canton",
+            _onChange="ajax('"+URL 
+            (r=request,f='distrito')+"',['canton'], 'target2');",
+            *[OPTION(canton[i].nCanton, _value=str 
+            (canton[i].id)) for i in range(len(canton))])
+
+def distrito(): 
+    canton = request.vars.values()[0] 
+    distrito = db(db.distrito.idCanton == canton).select() 
+    return SELECT(_id='distrito',_name='distrito',*[OPTION(distrito[i].nDistrito, _value=str 
+    (distrito[i].id)) for i in range(len(distrito))])

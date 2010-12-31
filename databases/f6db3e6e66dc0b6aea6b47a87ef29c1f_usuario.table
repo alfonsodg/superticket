@@ -1,0 +1,78 @@
+(dp1
+S'fInscripcionUsuario'
+p2
+S'TIMESTAMP NOT NULL'
+p3
+sS'idTipoDocumento'
+p4
+S'REFERENCES tipoDocumento(id) ON DELETE CASCADE'
+p5
+sS'telefonoUsuario'
+p6
+S'CHAR(32) NOT NULL'
+p7
+sS'direccionUsuario'
+p8
+S'CHAR(32) NOT NULL'
+p9
+sS'intentoFallidosUsuario'
+p10
+S'INTEGER'
+p11
+sS'numeroDocumentoUsuario'
+p12
+S'CHAR(32) NOT NULL'
+p13
+sS'idDistrito'
+p14
+S'REFERENCES distrito(id) ON DELETE CASCADE'
+p15
+sS'claveUsuario'
+p16
+S'CHAR(32) NOT NULL'
+p17
+sS'celularUsuario'
+p18
+S'CHAR(32)'
+p19
+sS'idTipoUsuario'
+p20
+S'REFERENCES tipoUsuario(id) ON DELETE CASCADE'
+p21
+sS'correoUsuario'
+p22
+S'CHAR(32) NOT NULL'
+p23
+sS'ultimoIntentoUsuario'
+p24
+S'INTEGER'
+p25
+sS'nUsuario'
+p26
+S'CHAR(32)'
+p27
+sS'fNacimientoUsuario'
+p28
+S'DATE NOT NULL'
+p29
+sS'aMaternoUsuario'
+p30
+S'CHAR(32)'
+p31
+sS'activoUsuario'
+p32
+S'CHAR(1) NOT NULL'
+p33
+sS'verificacionUsuario'
+p34
+S'CHAR(32)'
+p35
+sS'id'
+p36
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p37
+sS'aPaternoUsuario'
+p38
+S'CHAR(32) NOT NULL'
+p39
+s.

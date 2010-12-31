@@ -1,0 +1,18 @@
+(dp1
+S'idCanton'
+p2
+S'REFERENCES canton(id) ON DELETE CASCADE'
+p3
+sS'codigoPostalDistrito'
+p4
+S'CHAR(32) NOT NULL'
+p5
+sS'id'
+p6
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p7
+sS'nDistrito'
+p8
+S'CHAR(32) NOT NULL'
+p9
+s.

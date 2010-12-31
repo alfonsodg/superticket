@@ -1,0 +1,20 @@
+{{extend 'layout.html'}}
+
+<h3>{{=records[0].tipoEvento.nTipoEvento}}</h3>
+
+
+{{for record in records: }}
+<div class="tabla">
+    <div class="foto"><img width="150px" height="120px" align="absmiddle" src = "/{{=request.application}}/default/download/{{=record.evento.publicidadEvento}}"></div>
+    <div class="descripcion">
+    {{=A(record.evento.nEvento,_href=URL(r=request,f='zona?id=%s'%record.evento.id))}}<br />
+    {{=record.evento.descripcionEvento}}<br />
+    {{=record.lugar.nLugar}}<br />
+    {{=fechas.fecha_espanol(record.evento.fEvento)}}<br />
+    {{=record.evento.hEvento}}<br />
+
+    </div>
+    <div align="center"> <br class="clearfloat" /> </div>
+</div>
+{{pass}}
+<a href = "/{{=request.application}}/default/index/">{{="regresar a lista de eventos"}}</a><br/>

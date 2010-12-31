@@ -1,0 +1,42 @@
+(dp1
+S'idEvento'
+p2
+S'REFERENCES evento(id) ON DELETE CASCADE'
+p3
+sS'idMedioPago'
+p4
+S'REFERENCES medioPago(id) ON DELETE CASCADE'
+p5
+sS'observacionCampana'
+p6
+S'TEXT'
+p7
+sS'idTipoTarjeta'
+p8
+S'REFERENCES tipoTarjeta(id) ON DELETE CASCADE'
+p9
+sS'fFinCampana'
+p10
+S'DATE NOT NULL'
+p11
+sS'fInicioCampana'
+p12
+S'DATE NOT NULL'
+p13
+sS'nCampana'
+p14
+S'CHAR(32) NOT NULL'
+p15
+sS'idTipoDescuento'
+p16
+S'REFERENCES tipoDescuento(id) ON DELETE CASCADE'
+p17
+sS'descripcionCampana'
+p18
+S'TEXT'
+p19
+sS'id'
+p20
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p21
+s.

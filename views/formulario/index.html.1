@@ -1,0 +1,78 @@
+{{extend 'layout.html'}}
+<form id="myform">
+<div>
+    <label>Medio de Envio</label>        
+    <select name="combo" id="combo" />
+        {{for x in medioEnvio:}}
+            <option>{{=x.nMedioEnvio}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>Direccion</label>        
+    <input name="direccion" id="direccion" />
+</div>
+<div>
+    <label>Punto de venta</label>        
+    <select name="combo" id="combo" />
+        {{for x in puntoVenta:}}
+            <option>{{=x.nPuntoVenta}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>Distrito</label>        
+    <select name="combo" id="combo" />
+        {{for x in distrito:}}
+            <option>{{=x.nDistrito}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>medio pago</label>        
+    <select name="combo" id="combo" />
+        {{for x in medioPago:}}
+            <option>{{=x.nMedioPago}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>tipo tarjeta</label>        
+    <select name="combo" id="combo" />
+        {{for x in tipoTarjeta:}}
+            <option>{{=x.nTipoTarjeta}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>Numero tarjeta</label>        
+    <input name="direccion" id="direccion" />
+</div>
+<div>
+    <label>campana</label>        
+    <select name="combo" id="combo" />
+        {{for x in campana:}}
+            <option>{{=x.nCampana}}</option>
+        {{pass}}
+    </select>
+</div>
+    <label>Fecha Entrega</label>
+    <input name="direccion"  class="date" id="fecha" />    
+    <input type="submit" />
+</form>
+
+<!--
+    form=FORM( TABLE( (INPUT(_id="formId",_type="hidden")) ,
+    TR("Lugar y envio"),
+    TR("Pago y formas de pago:"),
+    TR(
+        TR(TD(),LABEL("#Tarjeta:",_id="ltarjeta"),TD(INPUT( _id="tarjetaId",_type="text",_name="numTarjeta",requires=IS_NOT_EMPTY()))) ,  
+        TR(TD(),TD("Campaña - Descuento"),TD(SELECT(_disabled="DISABLED",_id="campanaId",_type="select",_name="campana",
+        *[OPTION(x.campana.nCampana,' - ', x.tipoDescuento.porcetajeTipoDescuento,
+        _value=x.campana.id) for x in db(db.campana.idTipoDescuento==db.tipoDescuento.id).select()])))),
+    TR("Otros:"),
+    TR(        
+        TR(TD(),TD("Fecha Entrega"),TD(INPUT(_type="text",_class='date',_id="fEntrega", _name="fEntrega",requires=IS_NOT_EMPTY())))) ,          
+    TR("", INPUT(_type='submit',_value='Finalizar compra')),
+        ))
+-->

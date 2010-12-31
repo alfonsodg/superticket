@@ -1,0 +1,32 @@
+{{extend 'layout.html'}} 
+<table> 
+    <tr> 
+        {{=SELECT( _id='pais',_name="pais", _onChange="ajax('"+URL 
+        (r=request,f='provincia')+"',['pais'], 'target');",
+        *[OPTION(pais[i].nPais,_value=str(pais[i].id)) for i in range(len(pais))])}}  
+    </tr> 
+    <tr> 
+        <div id="target"> <div> 
+    </tr> 
+    <tr> 
+        <div id="target1"> <div> 
+    </tr>
+    <tr> 
+        <div id="target2"> <div> 
+    </tr>       
+</table>
+<script>
+$(document).ready(function(){ 
+    $('#pais').attr('onChange',  ajax('provincia',['pais'],'target'))
+});
+$('#pais').change(function(){ 
+    $('#pais').attr('onChange',  ajax('provincia',['pais'],'target'))
+}); 
+$('#provincia').change(function(){ 
+    $('#provincia').attr('onChange',  ajax('canton',['provincia'],'target1'))
+}); 
+$('#canton').change(function(){ 
+    $('#provincia').attr('onChange',  ajax('distrito',['canton'],'target2'))        
+}); 
+ 
+</script>

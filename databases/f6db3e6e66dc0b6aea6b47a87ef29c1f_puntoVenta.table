@@ -1,0 +1,34 @@
+(dp1
+S'referenciaPuntoVenta'
+p2
+S'TEXT'
+p3
+sS'nPuntoVenta'
+p4
+S'CHAR(32) NOT NULL'
+p5
+sS'idDistrito'
+p6
+S'REFERENCES distrito(id) ON DELETE CASCADE'
+p7
+sS'observacionPuntoVenta'
+p8
+S'TEXT'
+p9
+sS'fotoPuntoVenta'
+p10
+S'CHAR(128)'
+p11
+sS'activoPuntoVenta'
+p12
+S'CHAR(1)'
+p13
+sS'direccionPuntoVenta'
+p14
+S'CHAR(32) NOT NULL'
+p15
+sS'id'
+p16
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p17
+s.

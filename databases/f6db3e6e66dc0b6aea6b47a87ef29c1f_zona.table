@@ -1,0 +1,30 @@
+(dp1
+S'idEvento'
+p2
+S'REFERENCES evento(id) ON DELETE CASCADE'
+p3
+sS'fotoZona'
+p4
+S'CHAR(128) NOT NULL'
+p5
+sS'distribucionZona'
+p6
+S'CHAR(128)'
+p7
+sS'costoZona'
+p8
+S'DOUBLE NOT NULL'
+p9
+sS'nZona'
+p10
+S'CHAR(32) NOT NULL'
+p11
+sS'descripcionZona'
+p12
+S'TEXT NOT NULL'
+p13
+sS'id'
+p14
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p15
+s.

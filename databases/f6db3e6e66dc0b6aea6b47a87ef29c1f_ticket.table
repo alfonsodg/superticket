@@ -1,0 +1,86 @@
+(dp1
+S'codigoOperacionTicket'
+p2
+S'CHAR(32) NOT NULL'
+p3
+sS'idVendedor'
+p4
+S'REFERENCES usuario(id) ON DELETE CASCADE'
+p5
+sS'idMedioPago'
+p6
+S'REFERENCES medioPago(id) ON DELETE CASCADE'
+p7
+sS'idMedioEnvio'
+p8
+S'REFERENCES medioEnvio(id) ON DELETE CASCADE'
+p9
+sS'idPuntoVenta'
+p10
+S'REFERENCES puntoVenta(id) ON DELETE CASCADE'
+p11
+sS'idDistrito'
+p12
+S'REFERENCES distrito(id) ON DELETE CASCADE'
+p13
+sS'observaciones'
+p14
+S'CHAR(32)'
+p15
+sS'comisionVentaTicket'
+p16
+S'DOUBLE NOT NULL'
+p17
+sS'direccionTicket'
+p18
+S'CHAR(32) NOT NULL'
+p19
+sS'idAsiento'
+p20
+S'REFERENCES asiento(id) ON DELETE CASCADE'
+p21
+sS'fVentaTicket'
+p22
+S'TIMESTAMP NOT NULL'
+p23
+sS'idTipoTarjeta'
+p24
+S'REFERENCES tipoTarjeta(id) ON DELETE CASCADE'
+p25
+sS'idCampana'
+p26
+S'REFERENCES campana(id) ON DELETE CASCADE'
+p27
+sS'pinTicket'
+p28
+S'CHAR(32)'
+p29
+sS'montoTotalTicket'
+p30
+S'DOUBLE NOT NULL'
+p31
+sS'hashTicket'
+p32
+S'CHAR(32) NOT NULL'
+p33
+sS'imprimioTicket'
+p34
+S'CHAR(1) NOT NULL'
+p35
+sS'numeroTarjetaTicket'
+p36
+S'CHAR(32)'
+p37
+sS'idCliente'
+p38
+S'REFERENCES usuario(id) ON DELETE CASCADE'
+p39
+sS'id'
+p40
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p41
+sS'fEntregaTicket'
+p42
+S'DATE NOT NULL'
+p43
+s.

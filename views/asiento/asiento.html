@@ -1,0 +1,30 @@
+{{extend 'layout_admin.html'}}
+{{include 'asiento/menu.html'}}
+<h1>Evento: {{=A(evento[0],_href=URL(r=request,f='evento'))}}</h1>
+<h1>Zona: {{=A(zona[0],_href=URL(r=request,f='zona?id=%s'%eventoId))}}</h1>
+
+<h1>Asientos</h1>
+{{if not len(asientos):}}
+    <h2>Zona sin asientos</h2>
+    {{=form}}
+{{else:}}
+    <h2>Agregar asientos</h2>
+    {{=form}}
+    <h2>Cantidad de asientos: {{=numAsientos}}</h2>
+    <table>
+    {{for asiento in asientos:}}
+    <tr>
+    <td>{{=asiento.numeroAsiento}}</td>
+    <td>
+    {{if asiento.estadoAsiento==0:}}
+    Disponible
+    {{else:}}
+    No disponible
+    {{pass}}
+    </td>
+    <td>{{=asiento.fechaCambioEstadoAsiento}}</td>
+    <td>{{=asiento.FilaAsiento}}</td>
+    </tr>
+    {{pass}}
+    </table>
+{{pass}}

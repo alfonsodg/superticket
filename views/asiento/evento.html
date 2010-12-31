@@ -1,0 +1,12 @@
+{{extend 'layout_admin.html'}}
+{{include 'asiento/menu.html'}}
+<h1>Lista de eventos</h1>
+<table>
+{{for evento in records:}}
+<tr>
+<td>{{=A(evento.nEvento,_href=URL(r=request,f='zona?id=%s'%evento.id))}}</td>
+<td></td>
+<td>{{=evento.descripcionEvento}}</td>
+</tr>
+{{pass}}
+</table>

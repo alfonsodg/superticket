@@ -1,0 +1,246 @@
+<style type="text/css">
+<!--
+.style1 {
+    font-size: 10;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.style5 {font-size: 10; font-family: Arial, Helvetica, sans-serif; }
+
+-->
+</style>
+<p>{{extend 'layout.html'}}</p>
+<h3 align="center">Venta Punto de Venta</h3>
+<div align="center">
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="150" class="style1">Cliente: </td>
+      <td width="250" class="style5">{{=cliente[0].nUsuario}}</td>
+    </tr>
+    <tr>
+      <td class="style1"><strong>Vendedor: </strong></td>
+      <td class="style5">{{=vendedor[0].nUsuario}}</td>
+    </tr>
+    <tr>
+      <td class="style1"><strong>Evento: </strong></td>
+      <td class="style5">{{=datosUnicos.evento.nEvento}}</td>
+    </tr>
+    <tr>
+      <td class="style1"><strong>Zona:</strong></td>
+      <td class="style5">{{=datosUnicos.zona.nZona}}</td>
+    </tr>
+    <tr>
+      <td class="style1"><strong>Precio de la zona: </strong></td>
+      <td class="style5">{{=datosUnicos.zona.costoZona}}</td>
+    </tr>
+    <tr>
+      <td class="style1"><strong>Lista de asiento(s) seleccionado(s): </strong></td>
+      <td class="style5"><table>
+        {{for num in numAsiento:}}
+        <tr>
+          <td class="style5">{{=num}}</td>
+        </tr>
+        {{pass}}
+      </table></td>
+    </tr>
+    <tr>
+      <td class="style6">&nbsp;</td>
+      <td class="style6">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="style5">{{=A("Regresar",_href=URL(r=request,f='index'))}}</td>
+    </tr>
+  </table>
+</div>
+<p>&nbsp;</p>
+<form id="myform"><div> 
+  <label class="style1" id="lmedioEnvio">Medio de Envio</label>        
+    
+    <span class="style5">
+        <select id="medioEnvioId" name="medioEnvio" />                    
+        {{for x in medioEnvio:}}
+            <option  value={{=x.id}}>{{=x.nMedioEnvio}}</option>
+        {{pass}}
+    </select>
+    </span></div>
+  <div id="puntoVenta">    
+    
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+
+  <tr>
+    <td width="200" class="style5">
+      <label class="style1">Punto de venta</label></td>   
+    <td width="200" class="style5">
+        <select id="puntoVentaId" name="puntoVenta" />              
+        {{for x in puntoVenta:}}
+            <option value={{=x.id}}>{{=x.nPuntoVenta}}</option>
+        {{pass}}
+        </select>        </td>
+    </tr>
+  </table>
+  </div>
+ 
+  <div id="ubicacion">
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200" class="style5">
+      <label class="style1">Pais distrito</label></td>        
+    <td width="200" class="style5">
+    <select name="paisDistrito" id="paisDistrito" 
+     onchange="ajax('cantonDistrito',['paisDistrito'],'cantonTarget')">
+    {{for x in paisProvincia:}}
+    <option value={{=x.provincia.id}}>{{=x.pais.nPais}} - {{=x.provincia.nProvincia}}</option>
+    {{pass}}
+    </select>
+      <div id="cantonTarget">    </div>
+    </td>
+    </tr>
+  </table>
+
+    
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200" class="style5">
+      <label class="style1" id="ldireccion">Direccion</label></td>        
+    <td width="200" class="style5">
+      <input id="direccionId" name="direccion"  />      </td>
+    </tr>   
+  </table>
+  </div>    
+
+  <div>
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200">
+      <label class="style1">Medio de Pago</label></td>    
+      <td width="200" class="style5">
+        <select id ="medioPagoId" name="medioPago"/>                
+        {{for x in medioPago:}}
+            <option value={{=x.id}}>{{=x.nMedioPago}}</option>
+        {{pass}}
+        </select>        </td>
+    </tr>
+  </table>
+  </div>
+  
+  <div>
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200">
+      <label class="style1" id="ltipoTarjeta">Tipo de Tarjeta</label></td>      
+    <td width="200" class="style5">
+        <select id="tipoTarjetaId" name="tipoTarjeta" />              
+        {{for x in tipoTarjeta:}}
+            <option value={{=x.id}}>{{=x.nTipoTarjeta}}</option>
+        {{pass}}
+        </select>        </td>
+    </tr>
+  </table>
+  </div>
+
+  <div>
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200" class="style7">
+      <label class="style1" id="ltarjeta">Numero tarjeta</label></td>       
+    <td width="200" class="style5">
+      <input id="tarjetaId" name="numTarjeta" />      </td>
+    </tr>
+  </table>
+  </div>
+  
+  <div>
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200" >
+      <label class="style1" id="lobservaciones">Observaciones</label></td>       
+    <td width="200" class="style5">
+      <input id="observacionesId" name="observaciones" />      </td>
+    </tr>
+  </table>
+  </div>
+  
+  <div>
+  <table width="400" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200" class="style7"></td>
+    <td width="200" class="style7">
+      <input type="submit" name="boton" value="Comprar" />  </td>
+    </tr>
+  </table>
+  </div>    
+</form>
+
+<p class="style7"><div class="style5">Subtotal: {{=datosUnicos.zona.costoZona*len(numAsiento)}}</div>
+</p>
+<p class="style7"><div class="style5">Comisión: {{=datos.comision}}</div>
+</p>
+<p class="style7"><div class="style7" id="targetEnvio"></div>
+</p>
+<p><div class="style7" id="targetDescuento"></div>
+</p>
+<p><div id="targetPrecio"></div>
+</p>
+<p><div id="targetCampana"></div>
+</p>
+<script>
+$(document).ready(function(){
+    $('#medioEnvioId').attr('value','2');
+    $('#lmedioEnvio').fadeOut(); 
+    $('#medioEnvioId').fadeOut(); 
+
+    ajax('cantonDistrito',['paisDistrito'],'cantonTarget');
+    ajax('campana',['medioPagoId','tipoTarjetaId'],'targetCampana');
+    ajax('descuento',['medioPagoId','tipoTarjetaId'],'targetDescuento');        
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');
+    ajax('envio',['medioEnvioId','puntoVentaId'],'targetEnvio');
+    $('#puntoVenta').fadeIn();
+    $('#ubicacion').fadeOut();  
+    $('#formaEnvio').fadeOut('slow');
+    $('#cantonTarget').fadeOut('slow');
+    $('#ltarjeta').fadeOut('slow');
+    $('#tarjetaId').fadeOut('slow');    
+    $('#tarjetaId').attr('value','-');
+    $('#ltipoTarjeta').fadeOut('slow');
+    $('#tipoTarjetaId').fadeOut('slow'); 
+
+
+});
+$('#puntoVentaId').change(function(){
+    ajax('envio',['medioEnvioId','puntoVentaId'],'targetEnvio');
+});
+$('#medioEnvioId').change(function(){
+    ajax('envio',['medioEnvioId','puntoVentaId'],'targetEnvio');   
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');
+    if($('#medioEnvioId').attr('value')=="1"){
+        $('#puntoVenta').fadeOut();
+        $('#ubicacion').fadeIn();        
+    }else{
+        $('#puntoVenta').fadeIn(); 
+        $('#ubicacion').fadeOut();          
+    }
+});
+$('#medioPagoId').change(function(){ 
+    ajax('campana',['medioPagoId','tipoTarjetaId'],'targetCampana');
+    ajax('descuento',['medioPagoId','tipoTarjetaId'],'targetDescuento');        
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');    
+    if($('#medioPagoId').attr('value')=="1"){
+        $('#ltarjeta').fadeOut('slow');
+        $('#tarjetaId').fadeOut('slow');
+        $('#tarjetaId').attr('value','-');
+        $('#ltipoTarjeta').fadeOut('slow');
+        $('#tipoTarjetaId').fadeOut('slow');
+    }else{
+        $('#ltarjeta').fadeIn('slow');
+        $('#tarjetaId').attr('value','');
+        $('#tarjetaId').fadeIn('slow');
+        $('#ltipoTarjeta').fadeIn('slow');
+        $('#tipoTarjetaId').fadeIn('slow');
+    }
+});
+$('#tipoTarjetaId').change(function(){ 
+    ajax('campana',['medioPagoId','tipoTarjetaId'],'targetCampana');
+    ajax('descuento',['medioPagoId','tipoTarjetaId'],'targetDescuento');     
+    ajax('precios',['medioEnvioId','medioPagoId','tipoTarjetaId'],'targetPrecio');  
+});
+</script>

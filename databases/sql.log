@@ -1,0 +1,360 @@
+timestamp: 2009-08-11T13:22:40.656000
+CREATE TABLE vistaWeb(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	google_merchant_id CHAR(256),
+	name CHAR(32),
+	headline CHAR(64),
+	address CHAR(32),
+	city CHAR(32),
+	state CHAR(2),
+	zip_code CHAR(10),
+	phone CHAR(32),
+	fax CHAR(32),
+	email CHAR(32),
+	description TEXT,
+	why_buy TEXT,
+	return_policy TEXT,
+	logo CHAR(128),
+	color_background CHAR(10),
+	color_foreground CHAR(10),
+	color_header CHAR(10),
+	color_link CHAR(10),
+	font_family CHAR(32)
+);
+success!
+timestamp: 2009-08-11T13:22:41.281000
+CREATE TABLE modulo(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nModulo CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:41.906000
+CREATE TABLE tipoPermiso(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nTipoPermiso CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:42.218000
+CREATE TABLE tipoUsuario(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nTipoUsuario CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:42.593000
+CREATE TABLE permiso(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	idModulo REFERENCES modulo(id) ON DELETE CASCADE,
+	idTipoPermiso REFERENCES tipoPermiso(id) ON DELETE CASCADE,
+	idTipoUsuario REFERENCES tipoUsuario(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-08-11T13:22:42.937000
+CREATE TABLE medioEnvio(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nMedioEnvio CHAR(32) NOT NULL,
+	descripcionMedioEnvio TEXT,
+	precioMedioEnvio DOUBLE NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:43.250000
+CREATE TABLE pais(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nPais CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:43.546000
+CREATE TABLE provincia(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	idPais REFERENCES pais(id) ON DELETE CASCADE,
+	nProvincia CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:43.890000
+CREATE TABLE canton(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	idProvincia REFERENCES provincia(id) ON DELETE CASCADE,
+	nCanton CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:44.218000
+CREATE TABLE tipoDocumento(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nTipoDocumento CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:44.546000
+CREATE TABLE tipoDescuento(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nTipoDescuento CHAR(32) NOT NULL,
+	porcetajeTipoDescuento DOUBLE NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:44.890000
+CREATE TABLE tipoEvento(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nTipoEvento CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:45.171000
+CREATE TABLE tipoTarjeta(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nTipoTarjeta CHAR(32) NOT NULL,
+	descripcionTipoTarjeta TEXT
+);
+success!
+timestamp: 2009-08-11T13:22:45.500000
+CREATE TABLE medioPago(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nMedioPago CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:45.937000
+CREATE TABLE distrito(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	idCanton REFERENCES canton(id) ON DELETE CASCADE,
+	nDistrito CHAR(32) NOT NULL,
+	codigoPostalDistrito CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:46.328000
+CREATE TABLE lugar(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nLugar CHAR(32) NOT NULL,
+	direccionLugar CHAR(100) NOT NULL,
+	idDistrito REFERENCES distrito(id) ON DELETE CASCADE,
+	referenciaLugar TEXT,
+	observacionesLugar TEXT,
+	fotoLugar CHAR(128)
+);
+success!
+timestamp: 2009-08-11T13:22:46.656000
+CREATE TABLE evento(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nEvento CHAR(32) NOT NULL,
+	idTipoEvento REFERENCES tipoEvento(id) ON DELETE CASCADE,
+	idLugar REFERENCES lugar(id) ON DELETE CASCADE,
+	descripcionEvento TEXT,
+	observacionEvento TEXT,
+	fEvento DATE NOT NULL,
+	hEvento TIME NOT NULL,
+	publicidadEvento CHAR(128),
+	distribucionAsientosEvento CHAR(128),
+	calificacion DOUBLE
+);
+success!
+timestamp: 2009-08-11T13:22:47.140000
+CREATE TABLE zona(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	idEvento REFERENCES evento(id) ON DELETE CASCADE,
+	nZona CHAR(32) NOT NULL,
+	costoZona DOUBLE NOT NULL,
+	descripcionZona TEXT NOT NULL,
+	fotoZona CHAR(128) NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:47.453000
+CREATE TABLE usuario(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	aPaternoUsuario CHAR(32) NOT NULL,
+	aMaternoUsuario CHAR(32),
+	nUsuario CHAR(32),
+	idTipoDocumento REFERENCES tipoDocumento(id) ON DELETE CASCADE,
+	numeroDocumentoUsuario CHAR(32) NOT NULL,
+	direccionUsuario CHAR(32) NOT NULL,
+	idDistrito REFERENCES distrito(id) ON DELETE CASCADE,
+	idTipoUsuario REFERENCES tipoUsuario(id) ON DELETE CASCADE,
+	telefonoUsuario CHAR(32) NOT NULL,
+	celularUsuario CHAR(32),
+	correoUsuario CHAR(32) NOT NULL,
+	fNacimientoUsuario DATE NOT NULL,
+	claveUsuario CHAR(32) NOT NULL,
+	activoUsuario CHAR(1) NOT NULL,
+	fInscripcionUsuario TIMESTAMP NOT NULL,
+	verificacionUsuario CHAR(32),
+	ultimoIntentoUsuario INTEGER,
+	intentoFallidosUsuario INTEGER
+);
+success!
+timestamp: 2009-08-11T13:22:47.843000
+CREATE TABLE incidente(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	ctime INTEGER,
+	url CHAR(32),
+	codigo CHAR(32),
+	usuario REFERENCES usuario(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-08-11T13:22:48.140000
+CREATE TABLE puntoVenta(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nPuntoVenta CHAR(32) NOT NULL,
+	direccionPuntoVenta CHAR(32) NOT NULL,
+	referenciaPuntoVenta TEXT,
+	observacionPuntoVenta TEXT,
+	idDistrito REFERENCES distrito(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-08-11T13:22:48.484000
+CREATE TABLE asiento(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	FilaAsiento INTEGER NOT NULL,
+	numeroAsiento INTEGER NOT NULL,
+	idZona REFERENCES zona(id) ON DELETE CASCADE,
+	estadoAsiento INTEGER NOT NULL,
+	fechaCambioEstadoAsiento TIMESTAMP NOT NULL,
+	idUsuario REFERENCES usuario(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-08-11T13:22:48.828000
+CREATE TABLE asistencia(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	idPuntoVenta REFERENCES puntoVenta(id) ON DELETE CASCADE,
+	idUsuario REFERENCES usuario(id) ON DELETE CASCADE,
+	fAsistencia DATE NOT NULL,
+	hIngreso TIME NOT NULL,
+	hSalida TIME NOT NULL,
+	hSalidaRefrigerio TIME NOT NULL,
+	hIngresoRefrigerio TIME NOT NULL,
+	hSalidaAdicional TIME NOT NULL,
+	hIngresoAdicional TIME NOT NULL
+);
+success!
+timestamp: 2009-08-11T13:22:49.281000
+CREATE TABLE campana(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nCampana CHAR(32) NOT NULL,
+	descripcionCampana TEXT,
+	fInicioCampana DATE NOT NULL,
+	fFinCampana DATE NOT NULL,
+	observacionCampana TEXT,
+	idTipoDescuento REFERENCES tipoDescuento(id) ON DELETE CASCADE,
+	idTipoTarjeta REFERENCES tipoTarjeta(id) ON DELETE CASCADE,
+	idMedioPago REFERENCES medioPago(id) ON DELETE CASCADE,
+	idEvento REFERENCES evento(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-08-11T13:22:49.593000
+CREATE TABLE ticket(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	direccionTicket CHAR(32) NOT NULL,
+	comisionVentaTicket DOUBLE NOT NULL,
+	montoTotalTicket DOUBLE NOT NULL,
+	imprimioTicket CHAR(1) NOT NULL,
+	hashTicket CHAR(32) NOT NULL,
+	codigoOperacionTicket CHAR(32) NOT NULL,
+	fVentaTicket TIMESTAMP NOT NULL,
+	fEntregaTicket DATE NOT NULL,
+	idAsiento REFERENCES asiento(id) ON DELETE CASCADE,
+	idMedioEnvio REFERENCES medioEnvio(id) ON DELETE CASCADE,
+	idCampana REFERENCES campana(id) ON DELETE CASCADE,
+	numeroTarjetaTicket CHAR(32),
+	idTipoTarjeta REFERENCES tipoTarjeta(id) ON DELETE CASCADE,
+	idMedioPago REFERENCES medioPago(id) ON DELETE CASCADE,
+	idDistrito REFERENCES distrito(id) ON DELETE CASCADE,
+	idCliente REFERENCES usuario(id) ON DELETE CASCADE,
+	idVendedor REFERENCES usuario(id) ON DELETE CASCADE,
+	idPuntoVenta REFERENCES puntoVenta(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-08-13T12:08:06.048128
+ALTER TABLE asiento ADD compra CHAR(1);
+success!
+timestamp: 2009-08-28T15:05:21.121262
+CREATE TABLE supraTipoEvento(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nSupraTipoEvento CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-08-28T15:05:21.137255
+ALTER TABLE tipoEvento ADD idSupraTipoEvento REFERENCES supraTipoEvento(id) ON DELETE CASCADE;
+success!
+timestamp: 2009-08-29T19:27:41.500000
+ALTER TABLE puntoVenta ADD fotoPuntoVenta CHAR(128);
+success!
+timestamp: 2009-08-29T19:27:42.500000
+ALTER TABLE puntoVenta ADD activoPuntoVenta CHAR(1);
+success!
+timestamp: 2009-08-30T01:31:08.401000
+ALTER TABLE tipoEvento ADD descripcionTipoEvento TEXT;
+success!
+timestamp: 2009-08-30T01:31:08.917000
+ALTER TABLE tipoEvento ADD imagenTipoEvento CHAR(128);
+success!
+timestamp: 2009-08-30T02:10:21.993000
+ALTER TABLE ticket ADD pinTicket CHAR(32);
+success!
+timestamp: 2009-09-07T17:08:15.183668
+CREATE TABLE reporte(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nReporte CHAR(32) NOT NULL,
+	descripcionReporte CHAR(32) NOT NULL,
+	permisoReporte CHAR(32) NOT NULL
+);
+success!
+timestamp: 2009-09-07T17:08:15.230167
+CREATE TABLE variable(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nVariable CHAR(32) NOT NULL,
+	cantidadVariable CHAR(32) NOT NULL,
+	archivoVariable CHAR(128)
+);
+success!
+timestamp: 2009-09-08T10:44:50.429618
+ALTER TABLE variable ADD nombre CHAR(32);
+success!
+timestamp: 2009-09-08T14:52:12.095898
+ALTER TABLE variable ADD fotoIzquierda CHAR(32);
+success!
+timestamp: 2009-09-08T14:52:12.104081
+ALTER TABLE variable ADD impuesto CHAR(32);
+success!
+timestamp: 2009-09-08T14:52:12.107715
+ALTER TABLE variable ADD fotoDerecha CHAR(128);
+success!
+timestamp: 2009-09-08T14:52:12.112675
+ALTER TABLE variable ADD comision CHAR(32);
+success!
+timestamp: 2009-09-08T14:52:12.116383
+ALTER TABLE variable ADD telefono CHAR(32);
+success!
+timestamp: 2009-09-08T14:53:25.891233
+ALTER TABLE variable ADD otro2 CHAR(128);
+success!
+timestamp: 2009-09-08T14:53:25.898714
+ALTER TABLE variable ADD otro1 CHAR(32);
+success!
+timestamp: 2009-09-08T14:57:28.538561
+CREATE TABLE datosEmpresa(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nombre CHAR(32),
+	comision CHAR(32),
+	impuesto CHAR(32),
+	fotoIzquierda CHAR(32),
+	fotoDerecha CHAR(32),
+	telefono CHAR(32),
+	otro1 CHAR(32),
+	otro2 CHAR(128)
+);
+success!
+timestamp: 2009-09-08T15:10:51.492579
+ALTER TABLE datosEmpresa ADD lugar CHAR(32);
+success!
+timestamp: 2009-09-08T15:10:51.504567
+ALTER TABLE datosEmpresa ADD pais CHAR(128);
+success!
+timestamp: 2009-09-11T16:07:10.516717
+ALTER TABLE zona ADD distribucionZona CHAR(128) NOT NULL;
+timestamp: 2009-09-11T16:07:32.774258
+ALTER TABLE zona ADD distribucionZona CHAR(128) NOT NULL;
+timestamp: 2009-09-11T16:07:34.334397
+ALTER TABLE zona ADD distribucionZona CHAR(128) NOT NULL;
+timestamp: 2009-09-11T16:07:34.505037
+ALTER TABLE zona ADD distribucionZona CHAR(128) NOT NULL;
+timestamp: 2009-09-11T16:07:34.667053
+ALTER TABLE zona ADD distribucionZona CHAR(128) NOT NULL;
+timestamp: 2009-09-11T16:07:55.607132
+ALTER TABLE zona ADD distribucionZona CHAR(128);
+success!
+timestamp: 2009-09-22T13:24:01.216751
+ALTER TABLE ticket ADD observaciones CHAR(32);
+success!

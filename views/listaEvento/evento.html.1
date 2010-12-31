@@ -1,0 +1,53 @@
+{{extend 'layout.html'}}
+<h1>Lista de eventos</h1>
+<table  width="100%">
+    {{for record in records: }}
+    <tr>
+        <td>Nombre del Evento: </td>
+        <td> {{=A(record.evento.nEvento,_href=URL(r=request,f='zona?id=%s'%record.evento.id))}}</td>
+    </tr>
+    <tr>
+        <td>Descripción del evento:</td>
+        <td>{{=record.evento.descripcionEvento}}</td>
+    </tr>
+    <tr>
+        <td>Tipo del evento:</td>
+        <td>{{=record.tipoEvento.nTipoEvento}}</td>
+    </tr><td></td>
+    <tr>
+        <td>Lugar del evento:</td>
+        <td>{{=record.lugar.nLugar}}</td>
+    </tr>
+    <tr><td></td>
+    <td><img width="400px" align="right" src = "/{{=request.application}}/default/download/{{=record.evento.publicidadEvento}}"WIDTH="800"></td>
+    </tr>
+    {{pass}}
+</table>
+
+
+
+{{extend 'layout.html'}}
+<h1>Lista de eventos</h1>
+<table  width="100%">
+    {{for record in records: }}
+    <tr>
+        <td>Nombre del Evento: </td>
+        <td> {{=A(record.evento.nEvento,_href=URL(r=request,f='zona?id=%s'%record.evento.id))}}</td>
+    </tr><td></td>
+    <tr>
+        <td>Descripción del evento:</td>
+        <td>{{=record.evento.descripcionEvento}}</td>
+    </tr><td></td>
+    <tr>
+        <td>Tipo del evento:</td>
+        <td>{{=record.tipoEvento.nTipoEvento}}</td>
+    </tr><td></td>
+    <tr>
+        <td>Lugar del evento:</td>
+        <td>{{=record.lugar.nLugar}}</td>
+    </tr>
+    <tr><td></td>
+    <td><img width="400px" align="right" src = "/{{=request.application}}/default/download/{{=record.evento.publicidadEvento}}"WIDTH="800"></td>
+    </tr>
+    {{pass}}
+</table>

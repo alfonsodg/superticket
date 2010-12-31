@@ -1,0 +1,9 @@
+{{extend 'layoutless.html'}}
+<div class="titulo">Otros Eventos</div>
+{{for i in range(cantidad): }}
+<div class="cajon">
+    {{=A(registros[i].evento.nEvento,_href=URL(r=request,c="default",f='zona?id=%s'%registros[i].evento.id),_target = "_top")}}<br />
+    {{=registros[i].lugar.nLugar}}<br />
+    {{=fechas.fecha_espanol(registros[i].evento.fEvento)}}<br />
+</div>
+{{pass}}

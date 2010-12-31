@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+
+<h2>{{=records[0].supraTipoEvento.nSupraTipoEvento}}</h2>
+{{for record in records: }}
+<div class="tabla">
+    <div class="foto"><img width="150px" height="120px" align="absmiddle" src = "/{{=request.application}}/default/download/{{=record.tipoEvento.imagenTipoEvento}}"></div>
+    <div class="descripcion">
+    <h3>{{=A(record.tipoEvento.nTipoEvento,_href=URL(r=request,f='evento?id=%s'%record.tipoEvento.id))}}</h3>
+    {{=record.tipoEvento.descripcionTipoEvento}}<br />
+    </div>
+    <div align="center"> <br class="clearfloat" /> </div>
+</div>
+{{pass}}

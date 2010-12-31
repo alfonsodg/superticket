@@ -1,0 +1,22 @@
+(dp1
+S'url'
+p2
+S'CHAR(32)'
+p3
+sS'codigo'
+p4
+S'CHAR(32)'
+p5
+sS'ctime'
+p6
+S'INTEGER'
+p7
+sS'usuario'
+p8
+S'REFERENCES usuario(id) ON DELETE CASCADE'
+p9
+sS'id'
+p10
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p11
+s.

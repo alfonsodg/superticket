@@ -1,0 +1,39 @@
+{{extend 'layoutin.html'}}
+<h2 align="center"><strong>{{=asientos[0].evento.nEvento}} - {{=asientos[0].zona.nZona}}</strong></h2>
+<p><strong>Distribución: </strong></p>
+<div align="center"><img src="/{{=request.application}}/default/download/{{=asientos[0].zona.distribucionZona}}" alt="" width="320" height="240" />
+</div>
+<br />
+<form><table>
+{{for filaAsiento in filaAsientos:}}
+<tr>
+<td align="center">Fila: {{=filaAsiento.FilaAsiento}}</td>
+    {{for asiento in asientos:}}
+    {{if asiento.asiento.FilaAsiento==filaAsiento.FilaAsiento:}}
+    <td align="center">
+        {{=asiento.asiento.numeroAsiento}}<br/> 
+        {{if asiento.asiento.estadoAsiento==1:}}<input type="checkbox" id={{=asiento.asiento.id}} DISABLED>
+        {{else:}}
+        <input type="checkbox" id={{=asiento.asiento.id}}>
+      {{pass}} 
+      </td>
+    {{pass}}    
+    {{pass}}    </tr>    
+{{pass}}
+</table>
+</form>
+<br />                                                                                                                                                  
+{{=FORM(INPUT(_type='hidden',_id='asientosActivos',_name='asientosActivos'),
+INPUT(_type='submit',_value='Comprar',_name='boton'))}}
+<script>
+{{for asiento in asientos:}}
+    $('#{{=asiento.asiento.id}}').change(function(){ 
+    if($('#{{=asiento.asiento.id}}').attr('checked')){
+        $('#asientosActivos').attr('value',$('#asientosActivos').attr('value')+';'+'{{=asiento.asiento.id}}');
+    }else{ 
+        $('#asientosActivos').attr('value',$('#asientosActivos').attr('value')+';'+'{{=asiento.asiento.id}}');
+    }}); 
+{{pass}}
+</script>
+
+<p>{{=form}}</p>

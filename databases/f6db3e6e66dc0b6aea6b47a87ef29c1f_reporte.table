@@ -1,0 +1,18 @@
+(dp1
+S'descripcionReporte'
+p2
+S'CHAR(32) NOT NULL'
+p3
+sS'permisoReporte'
+p4
+S'CHAR(32) NOT NULL'
+p5
+sS'id'
+p6
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p7
+sS'nReporte'
+p8
+S'CHAR(32) NOT NULL'
+p9
+s.

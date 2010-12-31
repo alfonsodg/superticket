@@ -1,0 +1,20 @@
+{{extend 'layoutless.html'}}
+<div class="promocion">
+<div class="imagen">
+<img width="100%" height="155px" align="absmiddle" src = "/{{=request.application}}/default/download/{{=registros[cantidad].evento.publicidadEvento}}">
+</div>
+<div class="detalle">
+<div class="titulocentral">
+<span class="tamano12">{{=A(registros[cantidad].evento.nEvento,_href=URL(r=request,c="default",f='zona?id=%s'%registros[cantidad].evento.id),_target = "_top")}}</span><br />
+    {{=registros[cantidad].lugar.nLugar}}<br />
+    {{=fechas.fecha_espanol(registros[cantidad].evento.fEvento)}}<br />
+</div>
+<div class="compra" align="center">
+
+{{=A(IMG(_src=URL(r=request,c="static",f='comprar.png'),_width="80"),_href=URL(r=request,c="default",f='zona?id=%s'%registros[cantidad].evento.id),_target = "_top")}}<br />
+
+
+
+</div>
+</div>
+</div>

@@ -1,0 +1,23 @@
+{{extend 'layout.html'}}
+<h2>{{=records[0].evento.nEvento}}</h2>
+{{=records[0].evento.descripcionEvento}}<br />
+{{=records[0].lugar.nLugar}}<br />
+{{=records[0].evento.fEvento}}<br />
+{{=records[0].evento.hEvento}}<br />
+
+
+{{for record in records: }}
+<div class="tabla">
+    <div class="foto"><img width="150px" height="120px" align="absmiddle" src = "/{{=request.application}}/default/download/{{=record.zona.fotoZona}}"></div>
+    <div class="descripcion">
+    {{=A(record.zona.nZona,_href=URL(r=request,c='ventaBeta',f='index?id=%s'%record.zona.id))}}<br>    
+        {{=record.zona.descripcionZona}}<br>
+      Precio: S/.{{=record.zona.costoZona}}<br>
+
+    </div>
+</div>
+
+
+{{pass}}
+
+<a href = "/{{=request.application}}/default/index/">{{="regresar a lista de eventos"}}</a><br/>

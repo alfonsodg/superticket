@@ -1,0 +1,46 @@
+(dp1
+S'distribucionAsientosEvento'
+p2
+S'CHAR(128)'
+p3
+sS'fEvento'
+p4
+S'DATE NOT NULL'
+p5
+sS'idTipoEvento'
+p6
+S'REFERENCES tipoEvento(id) ON DELETE CASCADE'
+p7
+sS'hEvento'
+p8
+S'TIME NOT NULL'
+p9
+sS'calificacion'
+p10
+S'DOUBLE'
+p11
+sS'nEvento'
+p12
+S'CHAR(32) NOT NULL'
+p13
+sS'id'
+p14
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p15
+sS'publicidadEvento'
+p16
+S'CHAR(128)'
+p17
+sS'descripcionEvento'
+p18
+S'TEXT'
+p19
+sS'idLugar'
+p20
+S'REFERENCES lugar(id) ON DELETE CASCADE'
+p21
+sS'observacionEvento'
+p22
+S'TEXT'
+p23
+s.

@@ -1,0 +1,93 @@
+{{extend 'layout.html'}}
+<form id="myform">
+<div>
+    <label>Medio de Envio</label>        
+    <select name="combo" id="combo" />
+        {{for x in medioEnvio:}}
+            <option>{{=x.nMedioEnvio}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>Direccion</label>        
+    <input name="direccion" id="direccion" />
+</div>
+<div>
+    <label>Punto de venta</label>        
+    <select name="combo" id="combo" />
+        {{for x in puntoVenta:}}
+            <option>{{=x.nPuntoVenta}}</option>
+        {{pass}}
+    </select>
+</div>
+<div id="tg">
+    <label>Pais</label>        
+    <select name="pais" id="pais"  >
+        {{for x in pais:}}
+            <option value={{=x.id}}>{{=x.nPais}}</option>
+        {{pass}}
+    </select>
+</div>
+<div id="target">
+    <label>Pais</label>        
+    <select name="provincia" id="provincia"  >
+        {{for x in provincia:}}
+            <option value={{=x.id}}>{{=x.nProvincia}}</option>
+        {{pass}}
+    </select>
+</div>
+<div id="target1"></div>
+<div id="target2"></div>
+<div>
+    <label>Distrito</label>        
+    <select name="combo" id="combo" />
+        {{for x in distrito:}}
+            <option>{{=x.nDistrito}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>medio pago</label>        
+    <select name="combo" id="combo" />
+        {{for x in medioPago:}}
+            <option>{{=x.nMedioPago}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>tipo tarjeta</label>        
+    <select name="combo" id="combo" />
+        {{for x in tipoTarjeta:}}
+            <option>{{=x.nTipoTarjeta}}</option>
+        {{pass}}
+    </select>
+</div>
+<div>
+    <label>Numero tarjeta</label>        
+    <input name="direccion" id="direccion" />
+</div>
+<div>
+    <label>campana</label>        
+    <select name="combo" id="combo" />
+        {{for x in campana:}}
+            <option>{{=x.nCampana}}</option>
+        {{pass}}
+    </select>
+</div>
+    <label>Fecha Entrega</label>
+    <input name="direccion"  class="date" id="fecha" />    
+    <input type="submit" />
+</form>
+<script>
+$(document).ready(function(){ 
+
+});
+$('#pais').change(function(){ 
+    $('#pais').attr('onChange',  ajax('{{=URL(r=request,f='provincia')}}',['pais'],'target'))
+}); 
+$('#provincia').change(function(){ 
+    $('#provincia').attr('onChange',  ajax('{{=URL(r=request,f='canton')}}',['provincia'],'target1'))
+}); 
+
+ 
+</script>

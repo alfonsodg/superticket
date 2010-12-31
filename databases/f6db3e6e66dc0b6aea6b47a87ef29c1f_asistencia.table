@@ -1,0 +1,42 @@
+(dp1
+S'hSalidaAdicional'
+p2
+S'TIME NOT NULL'
+p3
+sS'hIngresoAdicional'
+p4
+S'TIME NOT NULL'
+p5
+sS'idPuntoVenta'
+p6
+S'REFERENCES puntoVenta(id) ON DELETE CASCADE'
+p7
+sS'hIngreso'
+p8
+S'TIME NOT NULL'
+p9
+sS'hSalida'
+p10
+S'TIME NOT NULL'
+p11
+sS'hIngresoRefrigerio'
+p12
+S'TIME NOT NULL'
+p13
+sS'idUsuario'
+p14
+S'REFERENCES usuario(id) ON DELETE CASCADE'
+p15
+sS'fAsistencia'
+p16
+S'DATE NOT NULL'
+p17
+sS'id'
+p18
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p19
+sS'hSalidaRefrigerio'
+p20
+S'TIME NOT NULL'
+p21
+s.
