@@ -1,18 +1,48 @@
 (dp1
-S'idCanton'
+S'idcanton'
 p2
-S'REFERENCES canton(id) ON DELETE CASCADE'
-p3
-sS'codigoPostalDistrito'
+(dp3
+S'type'
 p4
-S'CHAR(32) NOT NULL'
+S'reference canton'
 p5
-sS'id'
+sS'sortable'
 p6
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+I2
+sS'sql'
 p7
-sS'nDistrito'
+S'INTEGER REFERENCES canton(id) ON DELETE CASCADE'
 p8
-S'CHAR(32) NOT NULL'
+ssS'codigopostaldistrito'
 p9
-s.
+(dp10
+g4
+S'string'
+p11
+sg6
+I4
+sg7
+S'CHAR(512) NOT NULL'
+p12
+ssS'id'
+p13
+(dp14
+g4
+S'id'
+p15
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p16
+ssS'ndistrito'
+p17
+(dp18
+g4
+g11
+sg6
+I3
+sg7
+S'CHAR(512) NOT NULL'
+p19
+ss.

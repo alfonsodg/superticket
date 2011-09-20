@@ -1,34 +1,92 @@
 (dp1
-S'numeroAsiento'
+S'numeroasiento'
 p2
-S'INTEGER NOT NULL'
-p3
-sS'idZona'
+(dp3
+S'type'
 p4
-S'REFERENCES zona(id) ON DELETE CASCADE'
+S'integer'
 p5
-sS'estadoAsiento'
+sS'sortable'
 p6
-S'INTEGER NOT NULL'
+I3
+sS'sql'
 p7
-sS'FilaAsiento'
-p8
 S'INTEGER NOT NULL'
+p8
+ssS'idzona'
 p9
-sS'fechaCambioEstadoAsiento'
-p10
-S'TIMESTAMP NOT NULL'
+(dp10
+g4
+S'reference zona'
 p11
-sS'idUsuario'
+sg6
+I4
+sg7
+S'INTEGER REFERENCES zona(id) ON DELETE CASCADE'
 p12
-S'REFERENCES usuario(id) ON DELETE CASCADE'
+ssS'estadoasiento'
 p13
-sS'compra'
-p14
-S'CHAR(1)'
+(dp14
+g4
+g5
+sg6
+I5
+sg7
+S'INTEGER NOT NULL'
 p15
-sS'id'
+ssS'filaasiento'
 p16
+(dp17
+g4
+S'string'
+p18
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p19
+ssS'fechacambioestadoasiento'
+p20
+(dp21
+g4
+S'datetime'
+p22
+sg6
+I6
+sg7
+S'TIMESTAMP NOT NULL'
+p23
+ssS'idusuario'
+p24
+(dp25
+g4
+S'reference usuario'
+p26
+sg6
+I7
+sg7
+S'INTEGER REFERENCES usuario(id) ON DELETE CASCADE'
+p27
+ssS'compra'
+p28
+(dp29
+S'type'
+p30
+S'unkown'
+p31
+sS'sql'
+p32
+S'CHAR(1)'
+p33
+ssS'id'
+p34
+(dp35
+g4
+S'id'
+p36
+sg6
+I1
+sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p17
-s.
+p37
+ss.

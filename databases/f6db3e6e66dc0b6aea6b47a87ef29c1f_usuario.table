@@ -1,78 +1,205 @@
 (dp1
-S'fInscripcionUsuario'
+S'finscripcionusuario'
 p2
-S'TIMESTAMP NOT NULL'
-p3
-sS'idTipoDocumento'
+(dp3
+S'type'
 p4
-S'REFERENCES tipoDocumento(id) ON DELETE CASCADE'
+S'datetime'
 p5
-sS'telefonoUsuario'
+sS'sortable'
 p6
-S'CHAR(32) NOT NULL'
+I16
+sS'sql'
 p7
-sS'direccionUsuario'
+S'TIMESTAMP NOT NULL'
 p8
-S'CHAR(32) NOT NULL'
+ssS'idtipodocumento'
 p9
-sS'intentoFallidosUsuario'
-p10
-S'INTEGER'
+(dp10
+g4
+S'reference tipoDocumento'
 p11
-sS'numeroDocumentoUsuario'
+sg6
+I5
+sg7
+S'INTEGER REFERENCES tipoDocumento(id) ON DELETE CASCADE'
 p12
-S'CHAR(32) NOT NULL'
+ssS'nusuario'
 p13
-sS'idDistrito'
-p14
-S'REFERENCES distrito(id) ON DELETE CASCADE'
+(dp14
+g4
+S'string'
 p15
-sS'claveUsuario'
+sg6
+I4
+sg7
+S'CHAR(512)'
 p16
-S'CHAR(32) NOT NULL'
+ssS'iddistrito'
 p17
-sS'celularUsuario'
-p18
-S'CHAR(32)'
+(dp18
+g4
+S'reference distrito'
 p19
-sS'idTipoUsuario'
+sg6
+I8
+sg7
+S'INTEGER REFERENCES distrito(id) ON DELETE CASCADE'
 p20
-S'REFERENCES tipoUsuario(id) ON DELETE CASCADE'
+ssS'verificacionusuario'
 p21
-sS'correoUsuario'
-p22
-S'CHAR(32) NOT NULL'
+(dp22
+g4
+g15
+sg6
+I17
+sg7
+S'CHAR(512)'
 p23
-sS'ultimoIntentoUsuario'
+ssS'claveusuario'
 p24
-S'INTEGER'
-p25
-sS'nUsuario'
+(dp25
+g4
+S'password'
 p26
-S'CHAR(32)'
+sg6
+I14
+sg7
+S'CHAR(512) NOT NULL'
 p27
-sS'fNacimientoUsuario'
+ssS'celularusuario'
 p28
-S'DATE NOT NULL'
-p29
-sS'aMaternoUsuario'
+(dp29
+g4
+g15
+sg6
+I11
+sg7
+S'CHAR(512)'
 p30
-S'CHAR(32)'
+ssS'idtipousuario'
 p31
-sS'activoUsuario'
-p32
-S'CHAR(1) NOT NULL'
+(dp32
+g4
+S'reference tipoUsuario'
 p33
-sS'verificacionUsuario'
+sg6
+I9
+sg7
+S'INTEGER REFERENCES tipoUsuario(id) ON DELETE CASCADE'
 p34
-S'CHAR(32)'
+ssS'ultimointentousuario'
 p35
-sS'id'
-p36
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+(dp36
+g4
+S'integer'
 p37
-sS'aPaternoUsuario'
+sg6
+I18
+sg7
+S'INTEGER'
 p38
-S'CHAR(32) NOT NULL'
+ssS'direccionusuario'
 p39
-s.
+(dp40
+g4
+g15
+sg6
+I7
+sg7
+S'CHAR(512) NOT NULL'
+p41
+ssS'apaternousuario'
+p42
+(dp43
+g4
+g15
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p44
+ssS'correousuario'
+p45
+(dp46
+g4
+g15
+sg6
+I12
+sg7
+S'CHAR(512) NOT NULL'
+p47
+ssS'id'
+p48
+(dp49
+g4
+S'id'
+p50
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p51
+ssS'telefonousuario'
+p52
+(dp53
+g4
+g15
+sg6
+I10
+sg7
+S'CHAR(512) NOT NULL'
+p54
+ssS'intentofallidosusuario'
+p55
+(dp56
+g4
+g37
+sg6
+I19
+sg7
+S'INTEGER'
+p57
+ssS'numerodocumentousuario'
+p58
+(dp59
+g4
+g15
+sg6
+I6
+sg7
+S'CHAR(512) NOT NULL'
+p60
+ssS'fnacimientousuario'
+p61
+(dp62
+g4
+S'date'
+p63
+sg6
+I13
+sg7
+S'DATE NOT NULL'
+p64
+ssS'amaternousuario'
+p65
+(dp66
+g4
+g15
+sg6
+I3
+sg7
+S'CHAR(512)'
+p67
+ssS'activousuario'
+p68
+(dp69
+g4
+S'boolean'
+p70
+sg6
+I15
+sg7
+S'CHAR(1) NOT NULL'
+p71
+ss.

@@ -339,4 +339,8 @@ db.distrito.idCanton.requires=IS_IN_DB(db, 'canton.id','%(nCanton)s')
 db.usuario.idTipoDocumento.requires=IS_IN_DB(db, 'tipoDocumento.id','%(nTipoDocumento)s')
 db.usuario.idDistrito.requires=IS_IN_DB(db, 'distrito.id','%(nDistrito)s')
 db.usuario.idTipoUsuario.requires=IS_IN_DB(db, 'tipoUsuario.id','%(nTipoUsuario)s')
+db.usuario.claveUsuario.requires = [
+    IS_NOT_EMPTY(error_message='Campo obligatorio'),
+    CRYPT()]
 db.zona.idEvento.requires=IS_IN_DB(db, 'evento.id','%(nEvento)s')
+

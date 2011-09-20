@@ -1,18 +1,49 @@
 (dp1
-S'idTipoPermiso'
+S'idtipopermiso'
 p2
-S'REFERENCES tipoPermiso(id) ON DELETE CASCADE'
-p3
-sS'id'
+(dp3
+S'type'
 p4
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+S'reference tipoPermiso'
 p5
-sS'idTipoUsuario'
+sS'sortable'
 p6
-S'REFERENCES tipoUsuario(id) ON DELETE CASCADE'
+I3
+sS'sql'
 p7
-sS'idModulo'
+S'INTEGER REFERENCES tipoPermiso(id) ON DELETE CASCADE'
 p8
-S'REFERENCES modulo(id) ON DELETE CASCADE'
+ssS'id'
 p9
-s.
+(dp10
+g4
+S'id'
+p11
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p12
+ssS'idtipousuario'
+p13
+(dp14
+g4
+S'reference tipoUsuario'
+p15
+sg6
+I4
+sg7
+S'INTEGER REFERENCES tipoUsuario(id) ON DELETE CASCADE'
+p16
+ssS'idmodulo'
+p17
+(dp18
+g4
+S'reference modulo'
+p19
+sg6
+I2
+sg7
+S'INTEGER REFERENCES modulo(id) ON DELETE CASCADE'
+p20
+ss.

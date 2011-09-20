@@ -1,42 +1,110 @@
 (dp1
-S'hSalidaAdicional'
+S'hsalidaadicional'
 p2
-S'TIME NOT NULL'
-p3
-sS'hIngresoAdicional'
+(dp3
+S'type'
 p4
-S'TIME NOT NULL'
+S'time'
 p5
-sS'idPuntoVenta'
+sS'sortable'
 p6
-S'REFERENCES puntoVenta(id) ON DELETE CASCADE'
+I9
+sS'sql'
 p7
-sS'hIngreso'
-p8
 S'TIME NOT NULL'
+p8
+ssS'hingresoadicional'
 p9
-sS'hSalida'
-p10
+(dp10
+g4
+g5
+sg6
+I10
+sg7
 S'TIME NOT NULL'
 p11
-sS'hIngresoRefrigerio'
+ssS'idpuntoventa'
 p12
-S'TIME NOT NULL'
-p13
-sS'idUsuario'
+(dp13
+g4
+S'reference puntoVenta'
 p14
-S'REFERENCES usuario(id) ON DELETE CASCADE'
+sg6
+I2
+sg7
+S'INTEGER REFERENCES puntoVenta(id) ON DELETE CASCADE'
 p15
-sS'fAsistencia'
+ssS'hingreso'
 p16
-S'DATE NOT NULL'
-p17
-sS'id'
+(dp17
+g4
+g5
+sg6
+I5
+sg7
+S'TIME NOT NULL'
 p18
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+ssS'hsalida'
 p19
-sS'hSalidaRefrigerio'
-p20
+(dp20
+g4
+g5
+sg6
+I6
+sg7
 S'TIME NOT NULL'
 p21
-s.
+ssS'hingresorefrigerio'
+p22
+(dp23
+g4
+g5
+sg6
+I8
+sg7
+S'TIME NOT NULL'
+p24
+ssS'idusuario'
+p25
+(dp26
+g4
+S'reference usuario'
+p27
+sg6
+I3
+sg7
+S'INTEGER REFERENCES usuario(id) ON DELETE CASCADE'
+p28
+ssS'fasistencia'
+p29
+(dp30
+g4
+S'date'
+p31
+sg6
+I4
+sg7
+S'DATE NOT NULL'
+p32
+ssS'id'
+p33
+(dp34
+g4
+S'id'
+p35
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p36
+ssS'hsalidarefrigerio'
+p37
+(dp38
+g4
+g5
+sg6
+I7
+sg7
+S'TIME NOT NULL'
+p39
+ss.

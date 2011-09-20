@@ -1,14 +1,38 @@
 (dp1
-S'nProvincia'
+S'nprovincia'
 p2
-S'CHAR(32) NOT NULL'
-p3
-sS'idPais'
+(dp3
+S'type'
 p4
-S'REFERENCES pais(id) ON DELETE CASCADE'
+S'string'
 p5
-sS'id'
+sS'sortable'
 p6
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+I3
+sS'sql'
 p7
-s.
+S'CHAR(512) NOT NULL'
+p8
+ssS'idpais'
+p9
+(dp10
+g4
+S'reference pais'
+p11
+sg6
+I2
+sg7
+S'INTEGER REFERENCES pais(id) ON DELETE CASCADE'
+p12
+ssS'id'
+p13
+(dp14
+g4
+S'id'
+p15
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p16
+ss.

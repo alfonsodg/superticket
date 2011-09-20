@@ -1,10 +1,27 @@
 (dp1
 S'id'
 p2
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p3
-sS'nModulo'
+(dp3
+S'type'
 p4
-S'CHAR(32) NOT NULL'
+S'id'
 p5
-s.
+sS'sortable'
+p6
+I1
+sS'sql'
+p7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p8
+ssS'nmodulo'
+p9
+(dp10
+g4
+S'string'
+p11
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p12
+ss.

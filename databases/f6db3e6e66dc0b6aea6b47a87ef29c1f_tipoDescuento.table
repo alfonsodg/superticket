@@ -1,14 +1,38 @@
 (dp1
-S'porcetajeTipoDescuento'
+S'porcetajetipodescuento'
 p2
-S'DOUBLE NOT NULL'
-p3
-sS'nTipoDescuento'
+(dp3
+S'type'
 p4
-S'CHAR(32) NOT NULL'
+S'double'
 p5
-sS'id'
+sS'sortable'
 p6
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+I3
+sS'sql'
 p7
-s.
+S'DOUBLE NOT NULL'
+p8
+ssS'ntipodescuento'
+p9
+(dp10
+g4
+S'string'
+p11
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p12
+ssS'id'
+p13
+(dp14
+g4
+S'id'
+p15
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p16
+ss.

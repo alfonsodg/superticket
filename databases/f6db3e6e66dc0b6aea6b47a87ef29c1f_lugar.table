@@ -1,30 +1,80 @@
 (dp1
-S'direccionLugar'
+S'direccionlugar'
 p2
-S'CHAR(100) NOT NULL'
-p3
-sS'referenciaLugar'
+(dp3
+S'type'
 p4
-S'TEXT'
+S'string'
 p5
-sS'fotoLugar'
+sS'sortable'
 p6
-S'CHAR(128)'
+I3
+sS'sql'
 p7
-sS'idDistrito'
+S'CHAR(100) NOT NULL'
 p8
-S'REFERENCES distrito(id) ON DELETE CASCADE'
+ssS'referencialugar'
 p9
-sS'observacionesLugar'
-p10
-S'TEXT'
+(dp10
+g4
+S'text'
 p11
-sS'nLugar'
+sg6
+I5
+sg7
+S'TEXT'
 p12
-S'CHAR(32) NOT NULL'
+ssS'fotolugar'
 p13
-sS'id'
-p14
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+(dp14
+g4
+S'upload'
 p15
-s.
+sg6
+I7
+sg7
+S'CHAR(512)'
+p16
+ssS'nlugar'
+p17
+(dp18
+g4
+g5
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p19
+ssS'iddistrito'
+p20
+(dp21
+g4
+S'reference distrito'
+p22
+sg6
+I4
+sg7
+S'INTEGER REFERENCES distrito(id) ON DELETE CASCADE'
+p23
+ssS'observacioneslugar'
+p24
+(dp25
+g4
+g11
+sg6
+I6
+sg7
+S'TEXT'
+p26
+ssS'id'
+p27
+(dp28
+g4
+S'id'
+p29
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p30
+ss.

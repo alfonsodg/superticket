@@ -1,30 +1,81 @@
 (dp1
-S'idEvento'
+S'idevento'
 p2
-S'REFERENCES evento(id) ON DELETE CASCADE'
-p3
-sS'fotoZona'
+(dp3
+S'type'
 p4
-S'CHAR(128) NOT NULL'
+S'reference evento'
 p5
-sS'distribucionZona'
+sS'sortable'
 p6
-S'CHAR(128)'
+I2
+sS'sql'
 p7
-sS'costoZona'
+S'INTEGER REFERENCES evento(id) ON DELETE CASCADE'
 p8
-S'DOUBLE NOT NULL'
+ssS'distribucionzona'
 p9
-sS'nZona'
-p10
-S'CHAR(32) NOT NULL'
+(dp10
+g4
+S'upload'
 p11
-sS'descripcionZona'
+sg6
+I7
+sg7
+S'CHAR(512)'
 p12
-S'TEXT NOT NULL'
+ssS'id'
 p13
-sS'id'
-p14
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+(dp14
+g4
+S'id'
 p15
-s.
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p16
+ssS'fotozona'
+p17
+(dp18
+g4
+g11
+sg6
+I6
+sg7
+S'CHAR(512) NOT NULL'
+p19
+ssS'descripcionzona'
+p20
+(dp21
+g4
+S'text'
+p22
+sg6
+I5
+sg7
+S'TEXT NOT NULL'
+p23
+ssS'costozona'
+p24
+(dp25
+g4
+S'double'
+p26
+sg6
+I4
+sg7
+S'DOUBLE NOT NULL'
+p27
+ssS'nzona'
+p28
+(dp29
+g4
+S'string'
+p30
+sg6
+I3
+sg7
+S'CHAR(512) NOT NULL'
+p31
+ss.

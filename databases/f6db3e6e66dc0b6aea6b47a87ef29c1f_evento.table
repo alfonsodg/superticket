@@ -1,46 +1,124 @@
 (dp1
-S'distribucionAsientosEvento'
+S'distribucionasientosevento'
 p2
-S'CHAR(128)'
-p3
-sS'fEvento'
+(dp3
+S'type'
 p4
-S'DATE NOT NULL'
+S'upload'
 p5
-sS'idTipoEvento'
+sS'sortable'
 p6
-S'REFERENCES tipoEvento(id) ON DELETE CASCADE'
+I10
+sS'sql'
 p7
-sS'hEvento'
+S'CHAR(512)'
 p8
-S'TIME NOT NULL'
+ssS'idtipoevento'
 p9
-sS'calificacion'
-p10
-S'DOUBLE'
+(dp10
+g4
+S'reference tipoEvento'
 p11
-sS'nEvento'
+sg6
+I3
+sg7
+S'INTEGER REFERENCES tipoEvento(id) ON DELETE CASCADE'
 p12
-S'CHAR(32) NOT NULL'
+ssS'fevento'
 p13
-sS'id'
-p14
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+(dp14
+g4
+S'date'
 p15
-sS'publicidadEvento'
+sg6
+I7
+sg7
+S'DATE NOT NULL'
 p16
-S'CHAR(128)'
+ssS'hevento'
 p17
-sS'descripcionEvento'
-p18
-S'TEXT'
+(dp18
+g4
+S'time'
 p19
-sS'idLugar'
+sg6
+I8
+sg7
+S'TIME NOT NULL'
 p20
-S'REFERENCES lugar(id) ON DELETE CASCADE'
+ssS'calificacion'
 p21
-sS'observacionEvento'
-p22
-S'TEXT'
+(dp22
+g4
+S'double'
 p23
-s.
+sg6
+I11
+sg7
+S'DOUBLE'
+p24
+ssS'nevento'
+p25
+(dp26
+g4
+S'string'
+p27
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p28
+ssS'idlugar'
+p29
+(dp30
+g4
+S'reference lugar'
+p31
+sg6
+I4
+sg7
+S'INTEGER REFERENCES lugar(id) ON DELETE CASCADE'
+p32
+ssS'publicidadevento'
+p33
+(dp34
+g4
+g5
+sg6
+I9
+sg7
+S'CHAR(512)'
+p35
+ssS'id'
+p36
+(dp37
+g4
+S'id'
+p38
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p39
+ssS'observacionevento'
+p40
+(dp41
+g4
+S'text'
+p42
+sg6
+I6
+sg7
+S'TEXT'
+p43
+ssS'descripcionevento'
+p44
+(dp45
+g4
+g42
+sg6
+I5
+sg7
+S'TEXT'
+p46
+ss.

@@ -1,22 +1,60 @@
 (dp1
-S'nTipoEvento'
+S'ntipoevento'
 p2
-S'CHAR(32) NOT NULL'
-p3
-sS'idSupraTipoEvento'
+(dp3
+S'type'
 p4
-S'REFERENCES supraTipoEvento(id) ON DELETE CASCADE'
+S'string'
 p5
-sS'descripcionTipoEvento'
+sS'sortable'
 p6
-S'TEXT'
+I3
+sS'sql'
 p7
-sS'id'
+S'CHAR(512) NOT NULL'
 p8
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+ssS'idsupratipoevento'
 p9
-sS'imagenTipoEvento'
-p10
-S'CHAR(128)'
+(dp10
+g4
+S'reference supraTipoEvento'
 p11
-s.
+sg6
+I2
+sg7
+S'INTEGER REFERENCES supraTipoEvento(id) ON DELETE CASCADE'
+p12
+ssS'descripciontipoevento'
+p13
+(dp14
+g4
+S'text'
+p15
+sg6
+I4
+sg7
+S'TEXT'
+p16
+ssS'id'
+p17
+(dp18
+g4
+S'id'
+p19
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p20
+ssS'imagentipoevento'
+p21
+(dp22
+g4
+S'upload'
+p23
+sg6
+I5
+sg7
+S'CHAR(512)'
+p24
+ss.

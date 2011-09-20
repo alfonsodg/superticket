@@ -117,7 +117,7 @@ def register():
         message="Para completar su registro visite: %s?id=%s&key=%s"%(CAS.verify_url,id,key) 
         try:
             #session.flash=message
-            email(EMAIL_SENDER,form.vars.email,'Registro Maccticket',message)
+            email(EMAIL_SENDER,form.vars.email,'Registro Superticket',message)
             session.flash="Se le ha Enviado un Correo Electronico"
             redirect(URL(r=request,f='login'))
         except Exception:
@@ -159,7 +159,7 @@ def retrieve():
             r[0].update_record(claveUsuario='',verificacionUsuario=key)
             message="Para cambiar su contraseña visite: %s?id=%s&key=%s"%(CAS.verify_url,id,key) 
             try:
-                email(EMAIL_SENDER,form.vars.email,'Registro Maccticket',message)
+                email(EMAIL_SENDER,form.vars.email,'Registro Superticket',message)
                 #session.flash=message
                 session.flash="Se le ha Enviado un Correo Electronico"            
                 redirect(URL(r=request,f='login'))                

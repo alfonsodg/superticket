@@ -1,18 +1,47 @@
 (dp1
-S'descripcionReporte'
+S'descripcionreporte'
 p2
-S'CHAR(32) NOT NULL'
-p3
-sS'permisoReporte'
+(dp3
+S'type'
 p4
-S'CHAR(32) NOT NULL'
+S'string'
 p5
-sS'id'
+sS'sortable'
 p6
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+I3
+sS'sql'
 p7
-sS'nReporte'
+S'CHAR(512) NOT NULL'
 p8
-S'CHAR(32) NOT NULL'
+ssS'permisoreporte'
 p9
-s.
+(dp10
+g4
+g5
+sg6
+I4
+sg7
+S'CHAR(512) NOT NULL'
+p11
+ssS'id'
+p12
+(dp13
+g4
+S'id'
+p14
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p15
+ssS'nreporte'
+p16
+(dp17
+g4
+g5
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p18
+ss.

@@ -1,86 +1,230 @@
 (dp1
-S'codigoOperacionTicket'
+S'idvendedor'
 p2
-S'CHAR(32) NOT NULL'
-p3
-sS'idVendedor'
+(dp3
+S'type'
 p4
-S'REFERENCES usuario(id) ON DELETE CASCADE'
+S'reference usuario'
 p5
-sS'idMedioPago'
+sS'sortable'
 p6
-S'REFERENCES medioPago(id) ON DELETE CASCADE'
+I20
+sS'sql'
 p7
-sS'idMedioEnvio'
+S'INTEGER REFERENCES usuario(id) ON DELETE CASCADE'
 p8
-S'REFERENCES medioEnvio(id) ON DELETE CASCADE'
+ssS'idpuntoventa'
 p9
-sS'idPuntoVenta'
-p10
-S'REFERENCES puntoVenta(id) ON DELETE CASCADE'
+(dp10
+g4
+S'reference puntoVenta'
 p11
-sS'idDistrito'
+sg6
+I21
+sg7
+S'INTEGER REFERENCES puntoVenta(id) ON DELETE CASCADE'
 p12
-S'REFERENCES distrito(id) ON DELETE CASCADE'
+ssS'iddistrito'
 p13
-sS'observaciones'
-p14
-S'CHAR(32)'
+(dp14
+g4
+S'reference distrito'
 p15
-sS'comisionVentaTicket'
+sg6
+I18
+sg7
+S'INTEGER REFERENCES distrito(id) ON DELETE CASCADE'
 p16
-S'DOUBLE NOT NULL'
+ssS'observaciones'
 p17
-sS'direccionTicket'
-p18
-S'CHAR(32) NOT NULL'
+(dp18
+g4
+S'string'
 p19
-sS'idAsiento'
+sg6
+I15
+sg7
+S'CHAR(512)'
 p20
-S'REFERENCES asiento(id) ON DELETE CASCADE'
+ssS'idasiento'
 p21
-sS'fVentaTicket'
-p22
-S'TIMESTAMP NOT NULL'
+(dp22
+g4
+S'reference asiento'
 p23
-sS'idTipoTarjeta'
+sg6
+I10
+sg7
+S'INTEGER REFERENCES asiento(id) ON DELETE CASCADE'
 p24
-S'REFERENCES tipoTarjeta(id) ON DELETE CASCADE'
+ssS'fventaticket'
 p25
-sS'idCampana'
-p26
-S'REFERENCES campana(id) ON DELETE CASCADE'
+(dp26
+g4
+S'datetime'
 p27
-sS'pinTicket'
+sg6
+I8
+sg7
+S'TIMESTAMP NOT NULL'
 p28
-S'CHAR(32)'
+ssS'idcampana'
 p29
-sS'montoTotalTicket'
-p30
-S'DOUBLE NOT NULL'
+(dp30
+g4
+S'reference campana'
 p31
-sS'hashTicket'
+sg6
+I12
+sg7
+S'INTEGER REFERENCES campana(id) ON DELETE CASCADE'
 p32
-S'CHAR(32) NOT NULL'
+ssS'numerotarjetaticket'
 p33
-sS'imprimioTicket'
-p34
-S'CHAR(1) NOT NULL'
+(dp34
+g4
+g19
+sg6
+I13
+sg7
+S'CHAR(512)'
 p35
-sS'numeroTarjetaTicket'
+ssS'montototalticket'
 p36
-S'CHAR(32)'
-p37
-sS'idCliente'
+(dp37
+g4
+S'double'
 p38
-S'REFERENCES usuario(id) ON DELETE CASCADE'
+sg6
+I4
+sg7
+S'DOUBLE NOT NULL'
 p39
-sS'id'
+ssS'hashticket'
 p40
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p41
-sS'fEntregaTicket'
+(dp41
+g4
+g19
+sg6
+I6
+sg7
+S'CHAR(512)'
 p42
-S'DATE NOT NULL'
+ssS'imprimioticket'
 p43
-s.
+(dp44
+g4
+S'boolean'
+p45
+sg6
+I5
+sg7
+S'CHAR(1) NOT NULL'
+p46
+ssS'id'
+p47
+(dp48
+g4
+S'id'
+p49
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p50
+ssS'codigooperacionticket'
+p51
+(dp52
+g4
+g19
+sg6
+I7
+sg7
+S'CHAR(512)'
+p53
+ssS'idmediopago'
+p54
+(dp55
+g4
+S'reference medioPago'
+p56
+sg6
+I17
+sg7
+S'INTEGER REFERENCES medioPago(id) ON DELETE CASCADE'
+p57
+ssS'idmedioenvio'
+p58
+(dp59
+g4
+S'reference medioEnvio'
+p60
+sg6
+I11
+sg7
+S'INTEGER REFERENCES medioEnvio(id) ON DELETE CASCADE'
+p61
+ssS'pinticket'
+p62
+(dp63
+g4
+g19
+sg6
+I14
+sg7
+S'CHAR(512)'
+p64
+ssS'direccionticket'
+p65
+(dp66
+g4
+g19
+sg6
+I2
+sg7
+S'CHAR(512) NOT NULL'
+p67
+ssS'idtipotarjeta'
+p68
+(dp69
+g4
+S'reference tipoTarjeta'
+p70
+sg6
+I16
+sg7
+S'INTEGER REFERENCES tipoTarjeta(id) ON DELETE CASCADE'
+p71
+ssS'fentregaticket'
+p72
+(dp73
+g4
+S'date'
+p74
+sg6
+I9
+sg7
+S'DATE NOT NULL'
+p75
+ssS'idcliente'
+p76
+(dp77
+g4
+S'reference usuario'
+p78
+sg6
+I19
+sg7
+S'INTEGER REFERENCES usuario(id) ON DELETE CASCADE'
+p79
+ssS'comisionventaticket'
+p80
+(dp81
+g4
+g38
+sg6
+I3
+sg7
+S'DOUBLE NOT NULL'
+p82
+ss.
